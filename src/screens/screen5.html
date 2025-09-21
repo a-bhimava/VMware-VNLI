@@ -1,0 +1,170 @@
+<!-- Screen 5: Instant Results Dashboard -->
+<section class="screen screen-5" data-screen="5" role="region" aria-labelledby="screen5-title">
+    <div class="screen-background">
+        <div class="dashboard-background"></div>
+        <div class="data-visualization"></div>
+    </div>
+    
+    <div class="screen-content">
+        <header class="screen-header">
+            <h1 id="screen5-title" class="screen-title">Instant Results Dashboard</h1>
+            <h2 class="screen-subtitle">Comprehensive insights in seconds</h2>
+            <div class="comparison-banner glassmorphic-card">
+                <span class="comparison-text">30 seconds vs 45 minutes traditional method</span>
+                <div class="time-savings">98% faster</div>
+            </div>
+        </header>
+
+        <div class="dashboard-container">
+            <!-- VM Performance Metrics -->
+            <div class="metrics-section">
+                <div class="vm-performance glassmorphic-card">
+                    <h3>VM Performance Metrics</h3>
+                    <div class="chart-container">
+                        <div class="chart-placeholder">
+                            <div class="chart-bars">
+                                <div class="bar" style="height: 85%">
+                                    <span class="bar-label">VM-001</span>
+                                    <span class="bar-value">85%</span>
+                                </div>
+                                <div class="bar" style="height: 92%">
+                                    <span class="bar-label">VM-002</span>
+                                    <span class="bar-value">92%</span>
+                                </div>
+                                <div class="bar" style="height: 78%">
+                                    <span class="bar-label">VM-003</span>
+                                    <span class="bar-value">78%</span>
+                                </div>
+                                <div class="bar" style="height: 95%">
+                                    <span class="bar-label">VM-004</span>
+                                    <span class="bar-value">95%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Affected Systems List -->
+                <div class="affected-systems glassmorphic-card">
+                    <h3>Affected Systems</h3>
+                    <div class="systems-list">
+                        <div class="system-item">
+                            <div class="system-status critical"></div>
+                            <div class="system-info">
+                                <span class="system-name">VM-004 (Web Server)</span>
+                                <span class="system-details">CPU: 95% | Memory: 87%</span>
+                            </div>
+                            <div class="system-actions">
+                                <button class="action-btn">View Details</button>
+                            </div>
+                        </div>
+                        <div class="system-item">
+                            <div class="system-status warning"></div>
+                            <div class="system-info">
+                                <span class="system-name">VM-002 (Database)</span>
+                                <span class="system-details">CPU: 92% | Memory: 45%</span>
+                            </div>
+                            <div class="system-actions">
+                                <button class="action-btn">View Details</button>
+                            </div>
+                        </div>
+                        <div class="system-item">
+                            <div class="system-status warning"></div>
+                            <div class="system-info">
+                                <span class="system-name">VM-001 (App Server)</span>
+                                <span class="system-details">CPU: 85% | Memory: 72%</span>
+                            </div>
+                            <div class="system-actions">
+                                <button class="action-btn">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommended Actions -->
+            <div class="recommendations-section">
+                <div class="recommended-actions glassmorphic-card">
+                    <h3>Recommended Actions</h3>
+                    <div class="actions-list">
+                        <div class="action-item priority-high">
+                            <div class="action-priority">High</div>
+                            <div class="action-content">
+                                <h4>Scale VM-004 Resources</h4>
+                                <p>Increase CPU and memory allocation to handle current load</p>
+                                <button class="remediation-btn">Apply Fix</button>
+                            </div>
+                        </div>
+                        <div class="action-item priority-medium">
+                            <div class="action-priority">Medium</div>
+                            <div class="action-content">
+                                <h4>Optimize VM-002 Queries</h4>
+                                <p>Review database queries causing high CPU usage</p>
+                                <button class="remediation-btn">View Analysis</button>
+                            </div>
+                        </div>
+                        <div class="action-item priority-low">
+                            <div class="action-priority">Low</div>
+                            <div class="action-content">
+                                <h4>Monitor VM-001 Trends</h4>
+                                <p>Set up alerts for future CPU spikes</p>
+                                <button class="remediation-btn">Configure</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- One-click Remediation -->
+                <div class="remediation-panel glassmorphic-card">
+                    <h3>One-Click Remediation</h3>
+                    <div class="remediation-options">
+                        <button class="remediation-option">
+                            <span class="option-icon">⚡</span>
+                            <span class="option-text">Scale Resources</span>
+                        </button>
+                        <button class="remediation-option">
+                            <span class="option-icon">🔄</span>
+                            <span class="option-text">Restart Services</span>
+                        </button>
+                        <button class="remediation-option">
+                            <span class="option-icon">📊</span>
+                            <span class="option-text">Generate Report</span>
+                        </button>
+                        <button class="remediation-option">
+                            <span class="option-icon">🔔</span>
+                            <span class="option-text">Set Alerts</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Summary -->
+        <div class="performance-summary glassmorphic-card">
+            <h3>Query Performance Summary</h3>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <span class="summary-value">4</span>
+                    <span class="summary-label">VMs Found</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-value">3</span>
+                    <span class="summary-label">Critical Issues</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-value">30s</span>
+                    <span class="summary-label">Total Time</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-value">98%</span>
+                    <span class="summary-label">Time Saved</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation hint -->
+        <div class="navigation-hint">
+            <p>Discover AI-powered insights →</p>
+        </div>
+    </div>
+</section>

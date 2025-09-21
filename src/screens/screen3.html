@@ -1,0 +1,116 @@
+<!-- Screen 3: VNLI Interface - The Solution -->
+<section class="screen screen-3" data-screen="3" role="region" aria-labelledby="screen3-title">
+    <div class="screen-background">
+        <div class="solution-background"></div>
+        <div class="floating-elements">
+            <div class="floating-card card-1"></div>
+            <div class="floating-card card-2"></div>
+            <div class="floating-card card-3"></div>
+        </div>
+    </div>
+    
+    <div class="screen-content">
+        <header class="screen-header">
+            <div class="vmware-logo">
+                <img src="src/icons/vmware-logo.svg" alt="VMware Logo" class="logo-image">
+                <span class="vnli-branding">VNLI</span>
+            </div>
+            <h1 id="screen3-title" class="screen-title">The VNLI Solution</h1>
+            <h2 class="screen-subtitle">Natural Language Interface for VMware Management</h2>
+        </header>
+
+        <div class="vnli-interface-container">
+            <!-- Main VNLI interface -->
+            <div class="vnli-interface glassmorphic-card">
+                <div class="interface-header">
+                    <h3>Ask about your infrastructure in plain English</h3>
+                </div>
+                
+                <div class="search-container">
+                    <div class="search-bar glassmorphic-card">
+                        <div class="search-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <input type="text" 
+                               class="search-input" 
+                               placeholder="Ask about your infrastructure in plain English..."
+                               aria-label="Natural language query input">
+                        <button class="search-button" aria-label="Submit query">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Example queries -->
+                <div class="example-queries">
+                    <h4>Try asking:</h4>
+                    <div class="query-examples">
+                        <div class="query-example glassmorphic-card">
+                            <span class="query-text">"Show me VMs using too much CPU"</span>
+                        </div>
+                        <div class="query-example glassmorphic-card">
+                            <span class="query-text">"Which hosts need maintenance?"</span>
+                        </div>
+                        <div class="query-example glassmorphic-card">
+                            <span class="query-text">"Find storage bottlenecks in production"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefits showcase -->
+            <div class="benefits-showcase">
+                <div class="benefit-item glassmorphic-card">
+                    <div class="benefit-icon">💬</div>
+                    <h4>Natural Language</h4>
+                    <p>Ask questions in plain English, no syntax to learn</p>
+                </div>
+                
+                <div class="benefit-item glassmorphic-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h4>Instant Results</h4>
+                    <p>Get answers in seconds, not minutes</p>
+                </div>
+                
+                <div class="benefit-item glassmorphic-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h4>Intelligent</h4>
+                    <p>AI understands context and intent</p>
+                </div>
+                
+                <div class="benefit-item glassmorphic-card">
+                    <div class="benefit-icon">🔒</div>
+                    <h4>Secure</h4>
+                    <p>Enterprise-grade security and compliance</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transformation indicator -->
+        <div class="transformation-indicator glassmorphic-card">
+            <div class="transformation-content">
+                <h3>From Complex to Simple</h3>
+                <div class="transformation-comparison">
+                    <div class="before">
+                        <span class="comparison-label">Before:</span>
+                        <span class="comparison-text">47 lines of PowerShell</span>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="after">
+                        <span class="comparison-label">After:</span>
+                        <span class="comparison-text">"Show me high CPU VMs"</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation hint -->
+        <div class="navigation-hint">
+            <p>See VNLI in action →</p>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,109 @@
+<!-- Screen 1: Current State - Administrator Frustration -->
+<section class="screen screen-1" data-screen="1" role="region" aria-labelledby="screen1-title">
+    <div class="screen-background">
+        <div class="background-pattern"></div>
+    </div>
+    
+    <div class="screen-content">
+        <header class="screen-header">
+            <h1 id="screen1-title" class="screen-title">Sarah's Daily Challenge</h1>
+            <h2 class="screen-subtitle">Traditional VMware Management</h2>
+            <div class="time-indicator glassmorphic-card">
+                <span class="time-icon">⏱️</span>
+                <span class="time-text">45 minutes to write and debug script</span>
+            </div>
+        </header>
+
+        <div class="split-layout">
+            <!-- Left side: Complex PowerCLI terminal -->
+            <div class="terminal-section">
+                <div class="glassmorphic-card terminal-card">
+                    <div class="terminal-header">
+                        <div class="terminal-controls">
+                            <span class="control close"></span>
+                            <span class="control minimize"></span>
+                            <span class="control maximize"></span>
+                        </div>
+                        <span class="terminal-title">PowerCLI Terminal</span>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="terminal-line">
+                            <span class="prompt">PS></span>
+                            <span class="command">Get-VM | Where-Object {$_.PowerState -eq "PoweredOn"} | Get-View | Select-Object Name, @{Name="CPU";Expression={$_.Summary.QuickStats.OverallCpuUsage}}, @{Name="Memory";Expression={$_.Summary.QuickStats.GuestMemoryUsage}}, @{Name="Disk";Expression={$_.Summary.QuickStats.OverallCpuUsage}} | Where-Object {$_.CPU -gt 80 -or $_.Memory -gt 80} | Sort-Object CPU -Descending | Format-Table -AutoSize</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="output"># 47 lines of complex PowerShell code</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="output"># Multiple API calls and data transformations</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="output"># Error handling and debugging required</span>
+                        </div>
+                        <div class="terminal-line error">
+                            <span class="output">ERROR: Property 'OverallCpuUsage' not found</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="output"># 20 minutes spent debugging syntax errors</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right side: Frustrated administrator -->
+            <div class="admin-section">
+                <div class="admin-illustration">
+                    <div class="admin-character">
+                        <div class="admin-head"></div>
+                        <div class="admin-body"></div>
+                        <div class="admin-arms">
+                            <div class="arm left"></div>
+                            <div class="arm right"></div>
+                        </div>
+                    </div>
+                    <div class="monitor-setup">
+                        <div class="monitor primary"></div>
+                        <div class="monitor secondary"></div>
+                        <div class="monitor tertiary"></div>
+                    </div>
+                </div>
+                
+                <div class="admin-thoughts">
+                    <div class="thought-bubble glassmorphic-card">
+                        <p>"Why is this so complicated?"</p>
+                    </div>
+                    <div class="thought-bubble glassmorphic-card">
+                        <p>"I just want to see CPU usage..."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pain points card -->
+        <div class="pain-points glassmorphic-card">
+            <h3>Current Pain Points</h3>
+            <div class="pain-points-grid">
+                <div class="pain-point">
+                    <div class="pain-icon">🔧</div>
+                    <h4>Manual Scripting</h4>
+                    <p>Complex PowerShell commands for simple queries</p>
+                </div>
+                <div class="pain-point">
+                    <div class="pain-icon">🔄</div>
+                    <h4>Context Switching</h4>
+                    <p>Constantly switching between tools and interfaces</p>
+                </div>
+                <div class="pain-point">
+                    <div class="pain-icon">⚠️</div>
+                    <h4>Error-Prone</h4>
+                    <p>Syntax errors and debugging consume valuable time</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation hint -->
+        <div class="navigation-hint">
+            <p>Scroll or use arrow keys to continue →</p>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,51 @@
+{
+  "name": "vmware-vnli-prototype",
+  "version": "1.0.0",
+  "description": "VMware Natural Language Interface Prototype - Glassmorphic Design System",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "dev:alt": "npx serve . -p 8000",
+    "build": "echo 'Static site - no build process required'",
+    "deploy": "gh-pages -d .",
+    "serve": "npx serve . -s",
+    "lint:css": "stylelint 'src/css/**/*.css'",
+    "lint:js": "eslint 'src/js/**/*.js'",
+    "format": "prettier --write 'src/**/*.{css,js,html}'",
+    "test": "echo 'No tests configured yet'",
+    "clean": "rm -rf node_modules package-lock.json"
+  },
+  "keywords": [
+    "vmware",
+    "vnli",
+    "natural-language-interface",
+    "prototype",
+    "glassmorphic",
+    "ui-ux",
+    "enterprise",
+    "dashboard"
+  ],
+  "author": "VMware VNLI Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/vnli-prototype.git"
+  },
+  "homepage": "https://yourusername.github.io/vnli-prototype",
+  "devDependencies": {
+    "gh-pages": "^6.0.0",
+    "serve": "^14.2.0",
+    "eslint": "^8.50.0",
+    "stylelint": "^15.11.0",
+    "prettier": "^3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}
