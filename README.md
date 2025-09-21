@@ -50,7 +50,7 @@ vnli-demo/
    - Click "Save"
 
 3. **Access Your Site**
-   - URL: `https://yourusername.github.io/vnli-demo/`
+   - URL: `https://a-bhimava.github.io/VMware-VNLI/`
    - Custom domain option available in Pages settings
 
 ### Advanced Configuration
