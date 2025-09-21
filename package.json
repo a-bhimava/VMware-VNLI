@@ -1,51 +1,35 @@
 {
-  "name": "vmware-vnli-prototype",
+  "name": "vmware-vnli-pov-experience",
   "version": "1.0.0",
-  "description": "VMware Natural Language Interface Prototype - Glassmorphic Design System",
+  "description": "VMware VNLI POV Experience - Point of View Workflow Demonstration",
   "main": "index.html",
   "scripts": {
     "dev": "python3 -m http.server 8000",
     "dev:alt": "npx serve . -p 8000",
-    "build": "echo 'Static site - no build process required'",
-    "deploy": "gh-pages -d .",
     "serve": "npx serve . -s",
-    "lint:css": "stylelint 'src/css/**/*.css'",
-    "lint:js": "eslint 'src/js/**/*.js'",
-    "format": "prettier --write 'src/**/*.{css,js,html}'",
-    "test": "echo 'No tests configured yet'",
-    "clean": "rm -rf node_modules package-lock.json"
+    "test": "echo 'Static site - no tests required'"
   },
   "keywords": [
     "vmware",
     "vnli",
-    "natural-language-interface",
-    "prototype",
-    "glassmorphic",
-    "ui-ux",
-    "enterprise",
-    "dashboard"
+    "natural-language-interface", 
+    "pov",
+    "workflow",
+    "point-of-view",
+    "executive-demo",
+    "github-pages"
   ],
   "author": "VMware VNLI Team",
-  "license": "MIT",
+  "license": "Proprietary",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/vnli-prototype.git"
+    "url": "https://github.com/a-bhimava/VMware-VNLI.git"
   },
-  "homepage": "https://yourusername.github.io/vnli-prototype",
+  "homepage": "https://a-bhimava.github.io/VMware-VNLI/",
   "devDependencies": {
-    "gh-pages": "^6.0.0",
-    "serve": "^14.2.0",
-    "eslint": "^8.50.0",
-    "stylelint": "^15.11.0",
-    "prettier": "^3.0.0"
+    "serve": "^14.2.0"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ],
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=8.0.0"
+    "node": ">=16.0.0"
   }
 }
