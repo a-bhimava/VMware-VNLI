@@ -34,15 +34,22 @@
         <header class="pov-header">
             <div class="header-content">
                 <h1 class="pov-title">A Day in the Life: VMware Administrator</h1>
-                <div class="experience-toggle">
-                    <button id="traditional-btn" class="experience-btn active" data-experience="traditional">
-                        <span class="btn-icon">😰</span>
-                        Traditional Way
+                <div class="header-actions">
+                    <button id="pov-demo-btn" class="pov-demo-button">
+                        <span class="demo-icon">🖥️</span>
+                        <span class="demo-text">Live PoV Demo</span>
+                        <span class="demo-subtitle">See Your Actual Screens</span>
                     </button>
-                    <button id="vnli-btn" class="experience-btn" data-experience="vnli">
-                        <span class="btn-icon">😊</span>
-                        With VNLI
-                    </button>
+                    <div class="experience-toggle">
+                        <button id="traditional-btn" class="experience-btn active" data-experience="traditional">
+                            <span class="btn-icon">😰</span>
+                            Traditional Way
+                        </button>
+                        <button id="vnli-btn" class="experience-btn" data-experience="vnli">
+                            <span class="btn-icon">😊</span>
+                            With VNLI
+                        </button>
+                    </div>
                 </div>
             </div>
         </header>
@@ -502,6 +509,669 @@
             </div>
         </div>
 
+    </div>
+
+    <!-- PoV Demo Interface -->
+    <div id="pov-demo-overlay" class="pov-demo-overlay hidden">
+        <div class="pov-demo-container">
+            <div class="demo-header">
+                <div class="demo-header-left">
+                    <h2>Live PoV Demo: VM Incident Response</h2>
+                    <p>Experience exactly what you see on your screen during a critical VM incident</p>
+                </div>
+                <button id="close-pov-demo" class="close-demo-btn">✕</button>
+            </div>
+            
+            <div class="demo-workflow-selector">
+                <h3>Choose Your Experience:</h3>
+                <div class="workflow-options">
+                    <button id="traditional-workflow-btn" class="workflow-option-btn active">
+                        <span class="workflow-icon">😤</span>
+                        <span class="workflow-title">Current System</span>
+                        <span class="workflow-desc">Multiple tools, manual debugging</span>
+                    </button>
+                    <button id="vnli-workflow-btn" class="workflow-option-btn">
+                        <span class="workflow-icon">🚀</span>
+                        <span class="workflow-title">With VNLI</span>
+                        <span class="workflow-desc">Natural language, instant solutions</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Traditional Workflow Screens -->
+            <div id="traditional-workflow" class="workflow-screens active">
+                <div class="screen-navigation">
+                    <button id="prev-screen" class="nav-btn" disabled>← Previous</button>
+                    <div class="screen-indicators">
+                        <div class="screen-dot active" data-screen="1"></div>
+                        <div class="screen-dot" data-screen="2"></div>
+                        <div class="screen-dot" data-screen="3"></div>
+                        <div class="screen-dot" data-screen="4"></div>
+                        <div class="screen-dot" data-screen="5"></div>
+                        <div class="screen-dot" data-screen="6"></div>
+                    </div>
+                    <button id="next-screen" class="nav-btn">Next →</button>
+                </div>
+                
+                <!-- Screen 1: Alert Notification -->
+                <div id="demo-screen-1" class="demo-screen active">
+                    <div class="screen-timestamp">2:47 AM - Tuesday, December 15, 2023</div>
+                    <div class="realistic-desktop">
+                        <!-- Windows Taskbar -->
+                        <div class="windows-taskbar">
+                            <div class="start-button">⊞ Start</div>
+                            <div class="taskbar-apps">
+                                <div class="taskbar-app">📧 Outlook (15)</div>
+                                <div class="taskbar-app active">🚨 PagerDuty</div>
+                                <div class="taskbar-app">💻 Remote Desktop</div>
+                            </div>
+                            <div class="system-tray">
+                                <span class="time">2:47 AM</span>
+                                <span class="network">📶</span>
+                                <span class="battery">🔋</span>
+                            </div>
+                        </div>
+                        
+                        <!-- PagerDuty Alert Window -->
+                        <div class="alert-window">
+                            <div class="window-header critical">
+                                <span class="window-title">🚨 PagerDuty - CRITICAL ALERT</span>
+                                <div class="window-controls">
+                                    <span class="control minimize">−</span>
+                                    <span class="control maximize">□</span>
+                                    <span class="control close">✕</span>
+                                </div>
+                            </div>
+                            <div class="alert-content">
+                                <div class="alert-header">
+                                    <div class="alert-severity critical">CRITICAL</div>
+                                    <div class="alert-time">2:47:03 AM</div>
+                                </div>
+                                <h3>High CPU Usage - Production VM</h3>
+                                <div class="alert-details">
+                                    <div class="detail-row">
+                                        <span class="label">Affected System:</span>
+                                        <span class="value">VM-PROD-WEB-03.company.local</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="label">CPU Utilization:</span>
+                                        <span class="value critical">98% (Last 15 minutes)</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="label">Impact:</span>
+                                        <span class="value">Customer-facing web application</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span class="label">Escalation:</span>
+                                        <span class="value">Tier 3 - Sarah Chen</span>
+                                    </div>
+                                </div>
+                                <div class="alert-actions">
+                                    <button class="alert-btn acknowledge">Acknowledge</button>
+                                    <button class="alert-btn resolve">Resolve</button>
+                                    <button class="alert-btn escalate">Escalate</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Phone notification popup -->
+                        <div class="phone-notification">
+                            <div class="notification-header">
+                                <span class="app-icon">📱</span>
+                                <span class="app-name">PagerDuty</span>
+                                <span class="notification-time">now</span>
+                            </div>
+                            <div class="notification-content">
+                                <h4>CRITICAL: VM-PROD-WEB-03</h4>
+                                <p>High CPU usage detected - 98%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-commentary">
+                        <h4>What You're Thinking:</h4>
+                        <p>"Not again... it's 2:47 AM and I'm getting woken up. I need to figure out what's wrong with the production web server. Time to open multiple tools and start debugging."</p>
+                        <div class="stress-indicator high">Stress Level: HIGH 😰</div>
+                    </div>
+                </div>
+                
+                <!-- Screen 2: Opening Tools -->
+                <div id="demo-screen-2" class="demo-screen">
+                    <div class="screen-timestamp">2:52 AM (+5 minutes)</div>
+                    <div class="realistic-desktop">
+                        <div class="windows-taskbar">
+                            <div class="start-button">⊞ Start</div>
+                            <div class="taskbar-apps">
+                                <div class="taskbar-app">📧 Outlook (18)</div>
+                                <div class="taskbar-app">🚨 PagerDuty</div>
+                                <div class="taskbar-app active">🌐 vCenter</div>
+                                <div class="taskbar-app">💻 PowerShell</div>
+                                <div class="taskbar-app">📊 SCOM</div>
+                            </div>
+                            <div class="system-tray">
+                                <span class="time">2:52 AM</span>
+                                <span class="network">📶</span>
+                                <span class="battery">🔋</span>
+                            </div>
+                        </div>
+                        
+                        <!-- VPN Connection Dialog -->
+                        <div class="vpn-dialog">
+                            <div class="window-header">
+                                <span class="window-title">🔐 VPN Connection</span>
+                                <div class="window-controls">
+                                    <span class="control close">✕</span>
+                                </div>
+                            </div>
+                            <div class="vpn-content">
+                                <h3>Connecting to Corporate VPN...</h3>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%"></div>
+                                </div>
+                                <p>Establishing secure connection...</p>
+                            </div>
+                        </div>
+                        
+                        <!-- vCenter Login Loading -->
+                        <div class="vcenter-loading">
+                            <div class="window-header">
+                                <span class="window-title">🌐 VMware vSphere Client</span>
+                                <div class="window-controls">
+                                    <span class="control minimize">−</span>
+                                    <span class="control maximize">□</span>
+                                    <span class="control close">✕</span>
+                                </div>
+                            </div>
+                            <div class="loading-content">
+                                <div class="loading-spinner"></div>
+                                <h3>Loading vCenter...</h3>
+                                <p>Connecting to vcenter.company.local</p>
+                                <div class="loading-steps">
+                                    <div class="step completed">✓ Authenticating user</div>
+                                    <div class="step active">⟳ Loading inventory...</div>
+                                    <div class="step">○ Connecting to hosts</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-commentary">
+                        <h4>What You're Thinking:</h4>
+                        <p>"I need to connect to VPN first, then open vCenter to see what's happening. This loading is taking forever... I hope the issue isn't getting worse while I wait."</p>
+                        <div class="stress-indicator high">Stress Level: HIGH 😰</div>
+                    </div>
+                </div>
+                
+                <!-- Screen 3: vCenter Interface -->
+                <div id="demo-screen-3" class="demo-screen">
+                    <div class="screen-timestamp">3:02 AM (+15 minutes)</div>
+                    <div class="realistic-desktop">
+                        <div class="windows-taskbar">
+                            <div class="start-button">⊞ Start</div>
+                            <div class="taskbar-apps">
+                                <div class="taskbar-app">📧 Outlook (23)</div>
+                                <div class="taskbar-app">🚨 PagerDuty</div>
+                                <div class="taskbar-app active">🌐 vCenter</div>
+                                <div class="taskbar-app">💻 PowerShell</div>
+                                <div class="taskbar-app">📊 SCOM</div>
+                            </div>
+                            <div class="system-tray">
+                                <span class="time">3:02 AM</span>
+                                <span class="network">📶</span>
+                                <span class="battery">🔋</span>
+                            </div>
+                        </div>
+                        
+                        <!-- vCenter Main Interface -->
+                        <div class="vcenter-interface">
+                            <div class="window-header">
+                                <span class="window-title">🌐 VMware vSphere Client - vcenter.company.local</span>
+                                <div class="window-controls">
+                                    <span class="control minimize">−</span>
+                                    <span class="control maximize">□</span>
+                                    <span class="control close">✕</span>
+                                </div>
+                            </div>
+                            <div class="vcenter-content">
+                                <div class="vcenter-sidebar">
+                                    <div class="nav-tree">
+                                        <div class="tree-item expanded">
+                                            <span class="tree-icon">📁</span>
+                                            <span>Datacenter-Main</span>
+                                        </div>
+                                        <div class="tree-item nested expanded">
+                                            <span class="tree-icon">📂</span>
+                                            <span>Cluster-Production</span>
+                                        </div>
+                                        <div class="tree-item nested-2 selected">
+                                            <span class="tree-icon">🖥️</span>
+                                            <span>VM-PROD-WEB-03</span>
+                                            <span class="status-icon critical">🔴</span>
+                                        </div>
+                                        <div class="tree-item nested-2">
+                                            <span class="tree-icon">🖥️</span>
+                                            <span>VM-PROD-WEB-04</span>
+                                            <span class="status-icon good">🟢</span>
+                                        </div>
+                                        <div class="tree-item nested-2">
+                                            <span class="tree-icon">🖥️</span>
+                                            <span>VM-PROD-DB-01</span>
+                                            <span class="status-icon warning">🟡</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="vcenter-main">
+                                    <div class="vm-summary">
+                                        <h3>VM-PROD-WEB-03 Summary</h3>
+                                        <div class="summary-grid">
+                                            <div class="summary-item">
+                                                <span class="label">Power State:</span>
+                                                <span class="value">Powered On</span>
+                                            </div>
+                                            <div class="summary-item">
+                                                <span class="label">Host:</span>
+                                                <span class="value">esxi-prod-07.company.local</span>
+                                            </div>
+                                            <div class="summary-item">
+                                                <span class="label">CPU Usage:</span>
+                                                <span class="value critical">98.7%</span>
+                                            </div>
+                                            <div class="summary-item">
+                                                <span class="label">Memory Usage:</span>
+                                                <span class="value">67.3%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="performance-charts">
+                                        <div class="chart">
+                                            <h4>CPU Usage (Last 4 hours)</h4>
+                                            <div class="chart-area">
+                                                <svg width="400" height="200">
+                                                    <path d="M0,180 L50,170 L100,160 L150,155 L200,150 L250,120 L300,80 L350,20 L400,10" 
+                                                          stroke="#ff4444" stroke-width="2" fill="none"/>
+                                                    <circle cx="400" cy="10" r="4" fill="#ff4444"/>
+                                                </svg>
+                                                <div class="chart-warning">⚠️ CPU spiked 30 minutes ago</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-commentary">
+                        <h4>What You're Thinking:</h4>
+                        <p>"Finally got into vCenter. I can see the VM is using 98% CPU, but I need to dig deeper. Let me check the performance data and see what's causing this spike. I'll need to open PowerShell to run some diagnostic commands."</p>
+                        <div class="stress-indicator high">Stress Level: HIGH 😤</div>
+                    </div>
+                </div>
+                
+                <!-- Screen 4: PowerCLI Investigation -->
+                <div id="demo-screen-4" class="demo-screen">
+                    <div class="screen-timestamp">3:17 AM (+30 minutes)</div>
+                    <div class="realistic-desktop">
+                        <div class="windows-taskbar">
+                            <div class="start-button">⊞ Start</div>
+                            <div class="taskbar-apps">
+                                <div class="taskbar-app">📧 Outlook (31)</div>
+                                <div class="taskbar-app">🚨 PagerDuty</div>
+                                <div class="taskbar-app">🌐 vCenter</div>
+                                <div class="taskbar-app active">💻 PowerShell</div>
+                                <div class="taskbar-app">📊 SCOM</div>
+                                <div class="taskbar-app">🌐 Chrome</div>
+                            </div>
+                            <div class="system-tray">
+                                <span class="time">3:17 AM</span>
+                                <span class="network">📶</span>
+                                <span class="battery">🔋</span>
+                            </div>
+                        </div>
+                        
+                        <!-- PowerShell Window -->
+                        <div class="powershell-window">
+                            <div class="window-header">
+                                <span class="window-title">💻 Windows PowerShell - PowerCLI</span>
+                                <div class="window-controls">
+                                    <span class="control minimize">−</span>
+                                    <span class="control maximize">□</span>
+                                    <span class="control close">✕</span>
+                                </div>
+                            </div>
+                            <div class="terminal-content">
+                                <div class="terminal-line">
+                                    <span class="prompt">PS C:\></span>
+                                    <span class="command">Connect-VIServer vcenter.company.local</span>
+                                </div>
+                                <div class="terminal-line">
+                                    <span class="output">Name                           Port  User</span>
+                                </div>
+                                <div class="terminal-line">
+                                    <span class="output">----                           ----  ----</span>
+                                </div>
+                                <div class="terminal-line">
+                                    <span class="output">vcenter.company.local          443   COMPANY\sarah.chen</span>
+                                </div>
+                                <div class="terminal-line">
+                                    <span class="prompt">PS C:\></span>
+                                    <span class="command">Get-VM VM-PROD-WEB-03 | Get-Stat -Stat cpu.usage.average -Start (Get-Date).AddHours(-4)</span>
+                                </div>
+                                <div class="terminal-line error">
+                                    <span class="output">Get-Stat : Cannot bind parameter 'Start'. Cannot convert value "(Get-Date).AddHours(-4)" to type "System.DateTime".</span>
+                                </div>
+                                <div class="terminal-line">
+                                    <span class="prompt">PS C:\></span>
+                                    <span class="command">Get-VM VM-PROD-WEB-03 | Get-Stat -Stat cpu.usage.average -Start ((Get-Date).AddHours(-4))</span>
+                                </div>
+                                <div class="terminal-line">
+                                    <span class="output">MetricId    : cpu.usage.average</span>
+                                </div>
+                                <div class="terminal-line">
+                                    <span class="output">Timestamp   : 12/15/2023 2:45:00 AM</span>
+                                </div>
+                                <div class="terminal-line">
+                                    <span class="output">Value       : 97.45</span>
+                                </div>
+                                <div class="terminal-line">
+                                    <span class="prompt">PS C:\></span>
+                                    <span class="command">Get-VM VM-PROD-WEB-03 | Get-VMGuest</span>
+                                </div>
+                                <div class="terminal-line">
+                                    <span class="output">State        : Running</span>
+                                </div>
+                                <div class="terminal-line">
+                                    <span class="output">OSFullName   : Microsoft Windows Server 2019 Standard</span>
+                                </div>
+                                <div class="terminal-line">
+                                    <span class="prompt">PS C:\></span>
+                                    <span class="command typing">Invoke-VMScript -VM VM-PROD-WEB-03 -ScriptText "Get-Process | Sort-Object CPU -Descending | Select-Object -First 10" -GuestUser administrator -GuestPassword</span>
+                                    <span class="cursor">_</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Browser with Documentation -->
+                        <div class="browser-window">
+                            <div class="window-header">
+                                <span class="window-title">🌐 PowerCLI Documentation - VMware</span>
+                                <div class="window-controls">
+                                    <span class="control minimize">−</span>
+                                    <span class="control maximize">□</span>
+                                    <span class="control close">✕</span>
+                                </div>
+                            </div>
+                            <div class="browser-content">
+                                <div class="address-bar">
+                                    <span class="url">docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.powercli.cmdletref.doc/Invoke-VMScript.html</span>
+                                </div>
+                                <div class="page-content">
+                                    <h3>Invoke-VMScript</h3>
+                                    <p>Runs a script in the guest OS of the specified virtual machine...</p>
+                                    <div class="syntax-box">
+                                        <h4>Syntax</h4>
+                                        <code>Invoke-VMScript [-ScriptText] &lt;String&gt; [-VM] &lt;VirtualMachine[]&gt; [-GuestUser] &lt;String&gt; [-GuestPassword] &lt;SecureString&gt;</code>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-commentary">
+                        <h4>What You're Thinking:</h4>
+                        <p>"Ugh, PowerCLI syntax errors again! I always mess up the parameter formatting. Let me check the documentation and figure out the right way to get the process information from inside the VM. This is taking way too long..."</p>
+                        <div class="stress-indicator very-high">Stress Level: VERY HIGH 😡</div>
+                    </div>
+                </div>
+                
+                <!-- Screen 5: RDP Connection -->
+                <div id="demo-screen-5" class="demo-screen">
+                    <div class="screen-timestamp">4:23 AM (+1 hour 36 minutes)</div>
+                    <div class="realistic-desktop">
+                        <div class="windows-taskbar">
+                            <div class="start-button">⊞ Start</div>
+                            <div class="taskbar-apps">
+                                <div class="taskbar-app">📧 Outlook (47)</div>
+                                <div class="taskbar-app">🚨 PagerDuty</div>
+                                <div class="taskbar-app">🌐 vCenter</div>
+                                <div class="taskbar-app">💻 PowerShell</div>
+                                <div class="taskbar-app active">🖥️ RDP</div>
+                                <div class="taskbar-app">📊 SCOM</div>
+                            </div>
+                            <div class="system-tray">
+                                <span class="time">4:23 AM</span>
+                                <span class="network">📶</span>
+                                <span class="battery">🔋</span>
+                            </div>
+                        </div>
+                        
+                        <!-- RDP Window -->
+                        <div class="rdp-window">
+                            <div class="window-header">
+                                <span class="window-title">🖥️ VM-PROD-WEB-03 - Remote Desktop Connection</span>
+                                <div class="window-controls">
+                                    <span class="control minimize">−</span>
+                                    <span class="control maximize">□</span>
+                                    <span class="control close">✕</span>
+                                </div>
+                            </div>
+                            <div class="rdp-content">
+                                <!-- Windows Server Desktop -->
+                                <div class="server-desktop">
+                                    <div class="server-taskbar">
+                                        <div class="start-button-server">⊞ Start</div>
+                                        <div class="taskbar-apps-server">
+                                            <div class="taskbar-app-server active">📊 Task Manager</div>
+                                            <div class="taskbar-app-server">🌐 IIS Manager</div>
+                                            <div class="taskbar-app-server">📝 Event Viewer</div>
+                                        </div>
+                                        <div class="server-time">4:23 AM</div>
+                                    </div>
+                                    
+                                    <!-- Task Manager -->
+                                    <div class="task-manager">
+                                        <div class="tm-header">
+                                            <span class="tm-title">📊 Task Manager</span>
+                                            <div class="tm-tabs">
+                                                <div class="tm-tab">Processes</div>
+                                                <div class="tm-tab active">Performance</div>
+                                                <div class="tm-tab">Services</div>
+                                            </div>
+                                        </div>
+                                        <div class="tm-content">
+                                            <div class="cpu-graph">
+                                                <h4>CPU Usage</h4>
+                                                <div class="cpu-percentage critical">98%</div>
+                                                <div class="cpu-chart">
+                                                    <div class="chart-line high"></div>
+                                                </div>
+                                                <p>Utilization over the last 60 seconds</p>
+                                            </div>
+                                            
+                                            <div class="process-list">
+                                                <h4>Top Processes by CPU</h4>
+                                                <div class="process-table">
+                                                    <div class="process-row header">
+                                                        <span class="proc-name">Name</span>
+                                                        <span class="proc-cpu">CPU</span>
+                                                        <span class="proc-memory">Memory</span>
+                                                    </div>
+                                                    <div class="process-row critical">
+                                                        <span class="proc-name">java.exe</span>
+                                                        <span class="proc-cpu">89.3%</span>
+                                                        <span class="proc-memory">2.1 GB</span>
+                                                    </div>
+                                                    <div class="process-row">
+                                                        <span class="proc-name">w3wp.exe</span>
+                                                        <span class="proc-cpu">8.7%</span>
+                                                        <span class="proc-memory">512 MB</span>
+                                                    </div>
+                                                    <div class="process-row">
+                                                        <span class="proc-name">System</span>
+                                                        <span class="proc-cpu">0.8%</span>
+                                                        <span class="proc-memory">89 MB</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Event Viewer Window -->
+                                    <div class="event-viewer">
+                                        <div class="ev-header">
+                                            <span class="ev-title">📝 Event Viewer</span>
+                                        </div>
+                                        <div class="ev-content">
+                                            <div class="event-log">
+                                                <div class="log-entry error">
+                                                    <span class="log-time">4:20 AM</span>
+                                                    <span class="log-level">Error</span>
+                                                    <span class="log-message">OutOfMemoryException in Apache Tomcat</span>
+                                                </div>
+                                                <div class="log-entry warning">
+                                                    <span class="log-time">4:18 AM</span>
+                                                    <span class="log-level">Warning</span>
+                                                    <span class="log-message">High memory usage detected</span>
+                                                </div>
+                                                <div class="log-entry error">
+                                                    <span class="log-time">4:15 AM</span>
+                                                    <span class="log-level">Error</span>
+                                                    <span class="log-message">GC overhead limit exceeded</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-commentary">
+                        <h4>What You're Thinking:</h4>
+                        <p>"Finally! I can see it's the Java process (Apache Tomcat) that's consuming all the CPU. The event viewer shows OutOfMemoryException errors. It looks like a memory leak is causing garbage collection to run constantly. I need to restart the Tomcat service."</p>
+                        <div class="stress-indicator medium">Stress Level: MEDIUM 😤</div>
+                    </div>
+                </div>
+                
+                <!-- Screen 6: Resolution -->
+                <div id="demo-screen-6" class="demo-screen">
+                    <div class="screen-timestamp">6:47 AM (+4 hours)</div>
+                    <div class="realistic-desktop">
+                        <div class="windows-taskbar">
+                            <div class="start-button">⊞ Start</div>
+                            <div class="taskbar-apps">
+                                <div class="taskbar-app">📧 Outlook (58)</div>
+                                <div class="taskbar-app">🚨 PagerDuty</div>
+                                <div class="taskbar-app">🌐 vCenter</div>
+                                <div class="taskbar-app">💻 PowerShell</div>
+                                <div class="taskbar-app">🖥️ RDP</div>
+                                <div class="taskbar-app active">📝 Notepad</div>
+                            </div>
+                            <div class="system-tray">
+                                <span class="time">6:47 AM</span>
+                                <span class="network">📶</span>
+                                <span class="battery">🔋</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Incident Documentation -->
+                        <div class="notepad-window">
+                            <div class="window-header">
+                                <span class="window-title">📝 Incident Report - INC-20231215-001.txt</span>
+                                <div class="window-controls">
+                                    <span class="control minimize">−</span>
+                                    <span class="control maximize">□</span>
+                                    <span class="control close">✕</span>
+                                </div>
+                            </div>
+                            <div class="notepad-content">
+                                <textarea class="incident-report">
+INCIDENT REPORT
+===============
+Incident ID: INC-20231215-001
+Start Time: 2:47 AM
+Resolution Time: 6:45 AM
+Duration: 3 hours 58 minutes
+Severity: Critical
+
+AFFECTED SYSTEMS:
+- VM-PROD-WEB-03.company.local
+- Customer-facing web application
+- Estimated 500+ users impacted
+
+SYMPTOMS:
+- High CPU usage (98%+)
+- Slow application response times
+- PagerDuty critical alert
+
+ROOT CAUSE:
+- Apache Tomcat memory leak
+- Java heap exhaustion
+- Excessive garbage collection
+
+INVESTIGATION STEPS:
+1. Received PagerDuty alert at 2:47 AM
+2. Connected via VPN (5 minutes)
+3. Opened vCenter, reviewed VM metrics (15 minutes)
+4. Used PowerCLI for detailed analysis (30 minutes)
+5. Connected via RDP to investigate processes (45 minutes)
+6. Identified Java/Tomcat memory leak via Task Manager
+7. Reviewed event logs for errors
+
+RESOLUTION:
+- Restarted Apache Tomcat service
+- Increased JVM heap size from 2GB to 4GB
+- Added monitoring for heap utilization
+- Updated alerting thresholds
+
+LESSONS LEARNED:
+- Need better memory monitoring
+- Consider automated restart procedures
+- Review application memory usage patterns
+
+FOLLOW-UP ACTIONS:
+- Schedule application team review meeting
+- Update runbooks with troubleshooting steps
+- Implement heap dump collection automation
+
+Reported by: Sarah Chen
+Next shift: Briefed Tom Wilson on resolution
+                                </textarea>
+                            </div>
+                        </div>
+                        
+                        <!-- Email notification about resolution -->
+                        <div class="email-notification">
+                            <div class="notification-header">
+                                <span class="app-icon">📧</span>
+                                <span class="app-name">Outlook</span>
+                                <span class="notification-time">6:47 AM</span>
+                            </div>
+                            <div class="notification-content">
+                                <h4>Email sent to: operations@company.com</h4>
+                                <p>Subject: RESOLVED - VM-PROD-WEB-03 High CPU Issue</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="screen-commentary">
+                        <h4>What You're Thinking:</h4>
+                        <p>"Finally resolved after 4 hours! I need to document everything, update the team, and brief the day shift. I'm exhausted and have a meeting at 9 AM. There has to be a better way to handle these incidents..."</p>
+                        <div class="impact-summary">
+                            <h4>Total Impact:</h4>
+                            <div class="impact-metrics">
+                                <div class="metric">Time: 4 hours</div>
+                                <div class="metric">Cost: $300 (overtime)</div>
+                                <div class="metric">Sleep Lost: 4 hours</div>
+                                <div class="metric">Stress: Very High</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- VNLI Workflow Screens (placeholder for now) -->
+            <div id="vnli-workflow" class="workflow-screens">
+                <div class="vnli-placeholder">
+                    <h3>VNLI Experience Coming Next...</h3>
+                    <p>See how the same incident gets resolved in just 15 minutes with natural language commands</p>
+                    <button class="preview-vnli-btn">Preview VNLI Solution</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Skip to content for accessibility -->

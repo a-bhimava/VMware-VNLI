@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initAnimations();
     initTypingSimulation();
     initInteractiveElements();
+    initPOVDemo();
     
     console.log('VNLI POV Experience initialized successfully');
 });
@@ -1079,3 +1080,555 @@ window.VNLIPOVExperience = {
         initSavingsCalculator();
     }
 };
+
+// POV Demo Implementation
+function initPOVDemo() {
+    const povDemoBtn = document.getElementById('pov-demo-btn');
+    const povDemoOverlay = document.getElementById('pov-demo-overlay');
+    
+    // Create POV demo overlay if it doesn't exist
+    if (!povDemoOverlay && povDemoBtn) {
+        createPOVDemoOverlay();
+    }
+    
+    // POV Demo button click handler
+    if (povDemoBtn) {
+        povDemoBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            launchPOVDemo();
+            trackInteraction('POV Demo Launched', 'Demo Interaction');
+        });
+    }
+    
+    // Initialize POV demo screen navigation
+    initPOVDemoNavigation();
+    
+    // Initialize workflow switching
+    initPOVWorkflowToggle();
+    
+    // Add realistic timing animations
+    initPOVTimingAnimations();
+}
+
+function createPOVDemoOverlay() {
+    const overlay = document.createElement('div');
+    overlay.id = 'pov-demo-overlay';
+    overlay.className = 'pov-demo-overlay';
+    overlay.innerHTML = `
+        <div class="pov-demo-container">
+            <header class="pov-demo-header">
+                <div class="demo-title">
+                    <h2>Live Point-of-View Demo</h2>
+                    <p>See exactly what a VMware administrator sees during a VM incident</p>
+                </div>
+                <div class="demo-controls">
+                    <div class="workflow-selector">
+                        <button class="workflow-btn active" data-workflow="traditional">
+                            <span class="workflow-icon">😰</span>
+                            Traditional Way
+                        </button>
+                        <button class="workflow-btn" data-workflow="vnli">
+                            <span class="workflow-icon">😊</span>
+                            With VNLI
+                        </button>
+                    </div>
+                    <button class="close-demo-btn" aria-label="Close demo">×</button>
+                </div>
+            </header>
+            
+            <div class="pov-demo-content">
+                <!-- Traditional Workflow Screens -->
+                <div class="workflow-content traditional-workflow active">
+                    <div class="screen-navigation">
+                        <button class="nav-btn prev-screen" disabled>← Previous</button>
+                        <div class="screen-indicator">
+                            <span class="screen-counter">Screen 1 of 6</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 16.67%"></div>
+                            </div>
+                        </div>
+                        <button class="nav-btn next-screen">Next →</button>
+                    </div>
+                    
+                    <div class="screen-container">
+                        ${generateTraditionalWorkflowScreens()}
+                    </div>
+                </div>
+                
+                <!-- VNLI Workflow Screens -->
+                <div class="workflow-content vnli-workflow">
+                    <div class="vnli-demo-content">
+                        <h3>VNLI-Powered Resolution</h3>
+                        <div class="vnli-conversation">
+                            <div class="message user-message">
+                                <div class="message-content">
+                                    "Diagnose and fix the high CPU usage in VM-PROD-WEB-03"
+                                </div>
+                                <div class="message-time">2:47 AM</div>
+                            </div>
+                            <div class="message ai-message">
+                                <div class="message-content">
+                                    <h5>Analysis Complete</h5>
+                                    <p><strong>Root Cause:</strong> Memory leak in application process causing excessive CPU usage</p>
+                                    <p><strong>Recommended Action:</strong> Restart the affected service</p>
+                                    <div class="auto-actions">
+                                        <button class="action-btn primary">Auto-Restart Service</button>
+                                        <button class="action-btn secondary">Manual Review</button>
+                                    </div>
+                                </div>
+                                <div class="message-time">2:47:15 AM</div>
+                            </div>
+                        </div>
+                        <div class="vnli-resolution-time">
+                            <div class="time-metric success">
+                                <span class="metric-label">Total Resolution Time:</span>
+                                <span class="metric-value">15 seconds</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <footer class="pov-demo-footer">
+                <div class="demo-metrics">
+                    <div class="metric traditional-metric">
+                        <span class="metric-label">Traditional Time:</span>
+                        <span class="metric-value pain">4 hours 15 minutes</span>
+                    </div>
+                    <div class="metric vnli-metric">
+                        <span class="metric-label">VNLI Time:</span>
+                        <span class="metric-value success">15 seconds</span>
+                    </div>
+                    <div class="metric savings-metric">
+                        <span class="metric-label">Time Saved:</span>
+                        <span class="metric-value highlight">99.9%</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    `;
+    
+    document.body.appendChild(overlay);
+}
+
+function generateTraditionalWorkflowScreens() {
+    return `
+        <!-- Screen 1: Alert Notification -->
+        <div class="demo-screen active" data-screen="1">
+            <div class="screen-mockup">
+                <div class="windows-taskbar">
+                    <div class="start-button">🪟 Start</div>
+                    <div class="taskbar-items">
+                        <div class="taskbar-item">📧 Outlook</div>
+                        <div class="taskbar-item active">🚨 PagerDuty</div>
+                    </div>
+                    <div class="system-tray">2:47 AM</div>
+                </div>
+                <div class="alert-window">
+                    <div class="window-header">
+                        <span class="window-title">🚨 PagerDuty Alert - CRITICAL</span>
+                        <div class="window-controls">
+                            <span class="control minimize">−</span>
+                            <span class="control maximize">□</span>
+                            <span class="control close">×</span>
+                        </div>
+                    </div>
+                    <div class="window-content">
+                        <div class="alert-details">
+                            <h3>CRITICAL: High CPU Usage Detected</h3>
+                            <p><strong>Host:</strong> VM-PROD-WEB-03</p>
+                            <p><strong>CPU Utilization:</strong> 98%</p>
+                            <p><strong>Duration:</strong> 15 minutes</p>
+                            <p><strong>Impact:</strong> User complaints about slow performance</p>
+                        </div>
+                        <div class="alert-actions">
+                            <button class="alert-btn acknowledge">Acknowledge</button>
+                            <button class="alert-btn investigate">Start Investigation</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="screen-annotation">
+                <div class="stress-indicator high">Stress Level: High 😰</div>
+                <div class="action-required">Sarah is woken up and must start troubleshooting immediately</div>
+            </div>
+        </div>
+        
+        <!-- Screen 2: VPN & Tools -->
+        <div class="demo-screen" data-screen="2">
+            <div class="screen-mockup">
+                <div class="windows-taskbar">
+                    <div class="start-button">🪟 Start</div>
+                    <div class="taskbar-items">
+                        <div class="taskbar-item">🔐 VPN Client</div>
+                        <div class="taskbar-item">🌐 Chrome</div>
+                        <div class="taskbar-item active">⚡ vCenter</div>
+                    </div>
+                    <div class="system-tray">2:52 AM</div>
+                </div>
+                <div class="vpn-connection">
+                    <div class="connection-status connecting">
+                        <span class="status-icon">🔄</span>
+                        <span>Connecting to Corporate VPN...</span>
+                    </div>
+                </div>
+                <div class="browser-window">
+                    <div class="browser-header">
+                        <div class="browser-tabs">
+                            <div class="tab active">vCenter Server</div>
+                            <div class="tab">VMware Docs</div>
+                            <div class="tab">+</div>
+                        </div>
+                    </div>
+                    <div class="loading-screen">
+                        <div class="loading-spinner"></div>
+                        <p>Loading vCenter Server...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="screen-annotation">
+                <div class="stress-indicator high">Stress Level: High 😤</div>
+                <div class="action-required">Connecting to tools while users complain about downtime</div>
+            </div>
+        </div>
+        
+        <!-- Screen 3: vCenter Investigation -->
+        <div class="demo-screen" data-screen="3">
+            <div class="screen-mockup">
+                <div class="vcenter-interface">
+                    <div class="vcenter-header">
+                        <div class="vcenter-logo">VMware vSphere Client</div>
+                        <div class="vcenter-nav">
+                            <span class="nav-item active">Hosts and Clusters</span>
+                            <span class="nav-item">VMs and Templates</span>
+                            <span class="nav-item">Storage</span>
+                        </div>
+                    </div>
+                    <div class="vcenter-content">
+                        <div class="vcenter-tree">
+                            <div class="tree-item expanded">📁 Datacenter</div>
+                            <div class="tree-item expanded">  📁 Production Cluster</div>
+                            <div class="tree-item">    🖥️ ESXi-PROD-01</div>
+                            <div class="tree-item selected">    🖥️ ESXi-PROD-03 ⚠️</div>
+                            <div class="tree-item">    🖥️ ESXi-PROD-05</div>
+                        </div>
+                        <div class="vcenter-details">
+                            <h4>VM-PROD-WEB-03 Details</h4>
+                            <div class="vm-metrics">
+                                <div class="metric-row">
+                                    <span>CPU Usage:</span>
+                                    <span class="value critical">98%</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span>Memory Usage:</span>
+                                    <span class="value warning">87%</span>
+                                </div>
+                                <div class="metric-row">
+                                    <span>Network I/O:</span>
+                                    <span class="value normal">Normal</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="screen-annotation">
+                <div class="stress-indicator very-high">Stress Level: Very High 😫</div>
+                <div class="action-required">Investigating but need more detailed analysis tools</div>
+            </div>
+        </div>
+        
+        <!-- Screen 4: PowerCLI Terminal -->
+        <div class="demo-screen" data-screen="4">
+            <div class="screen-mockup">
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <span class="terminal-title">PowerCLI - Administrator</span>
+                        <div class="window-controls">
+                            <span class="control minimize">−</span>
+                            <span class="control maximize">□</span>
+                            <span class="control close">×</span>
+                        </div>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="terminal-line">
+                            <span class="prompt">PS C:\\></span>
+                            <span class="command">Get-VM VM-PROD-WEB-03 | Get-Stat -Stat cpu.usage.average</span>
+                        </div>
+                        <div class="terminal-output">
+                            <pre>Timestamp            Entity         Stat                Value
+---------            ------         ----                -----
+12/15/2023 2:47:30   VM-PROD-WEB-03 cpu.usage.average   98.45
+12/15/2023 2:46:30   VM-PROD-WEB-03 cpu.usage.average   97.82
+12/15/2023 2:45:30   VM-PROD-WEB-03 cpu.usage.average   96.73</pre>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="prompt">PS C:\\></span>
+                            <span class="command typing">Get-Process -ComputerName VM-PROD-WEB-03 | Sort CPU -Desc</span>
+                            <span class="cursor">_</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="documentation-window">
+                    <div class="browser-header">
+                        <div class="browser-tabs">
+                            <div class="tab active">VMware PowerCLI Documentation</div>
+                        </div>
+                    </div>
+                    <div class="doc-content">
+                        <h4>Troubleshooting High CPU Usage</h4>
+                        <p>Step 1: Check running processes...</p>
+                        <p>Step 2: Analyze resource allocation...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="screen-annotation">
+                <div class="stress-indicator extreme">Stress Level: Extreme 🤯</div>
+                <div class="action-required">Deep diving into technical analysis while pressure mounts</div>
+            </div>
+        </div>
+        
+        <!-- Screen 5: RDP Connection -->
+        <div class="demo-screen" data-screen="5">
+            <div class="screen-mockup">
+                <div class="rdp-window">
+                    <div class="rdp-header">
+                        <span class="rdp-title">Remote Desktop - VM-PROD-WEB-03</span>
+                        <div class="connection-quality">
+                            <span class="signal-bars">📶</span>
+                            <span>Poor Connection</span>
+                        </div>
+                    </div>
+                    <div class="rdp-content">
+                        <div class="remote-desktop">
+                            <div class="remote-taskbar">
+                                <div class="start-button">🪟 Start</div>
+                                <div class="taskbar-items">
+                                    <div class="taskbar-item active">📊 Task Manager</div>
+                                    <div class="taskbar-item">🌐 IIS Manager</div>
+                                </div>
+                                <div class="system-tray">4:23 AM</div>
+                            </div>
+                            <div class="task-manager">
+                                <div class="task-manager-header">
+                                    <h4>Task Manager - Processes</h4>
+                                </div>
+                                <div class="process-list">
+                                    <div class="process-row header">
+                                        <span>Name</span>
+                                        <span>CPU</span>
+                                        <span>Memory</span>
+                                    </div>
+                                    <div class="process-row critical">
+                                        <span>AppService.exe</span>
+                                        <span>89%</span>
+                                        <span>2.1 GB</span>
+                                    </div>
+                                    <div class="process-row">
+                                        <span>System</span>
+                                        <span>2%</span>
+                                        <span>156 MB</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="screen-annotation">
+                <div class="stress-indicator extreme">Stress Level: Burnout 😵</div>
+                <div class="action-required">Finally found the issue but took 4+ hours</div>
+            </div>
+        </div>
+        
+        <!-- Screen 6: Resolution -->
+        <div class="demo-screen" data-screen="6">
+            <div class="screen-mockup">
+                <div class="notepad-window">
+                    <div class="window-header">
+                        <span class="window-title">Incident Resolution Notes - Notepad</span>
+                        <div class="window-controls">
+                            <span class="control minimize">−</span>
+                            <span class="control maximize">□</span>
+                            <span class="control close">×</span>
+                        </div>
+                    </div>
+                    <div class="notepad-content">
+                        <textarea readonly>
+Incident #INC-2023-1215-001
+Time: 2:47 AM - 6:47 AM (4 hours)
+Issue: High CPU usage on VM-PROD-WEB-03
+
+Root Cause: AppService.exe memory leak causing CPU spike
+
+Resolution: 
+1. Restarted AppService.exe service
+2. CPU usage returned to normal
+3. Monitoring for recurrence
+
+Next Steps:
+- Contact development team about memory leak
+- Schedule application update
+- Monitor service stability
+
+Total Downtime: 4 hours 15 minutes
+User Impact: High - customer complaints received
+                        </textarea>
+                    </div>
+                </div>
+                <div class="email-window">
+                    <div class="email-header">Outlook - Incident Report</div>
+                    <div class="email-content">
+                        <div class="email-field">
+                            <label>To:</label>
+                            <span>team@company.com; manager@company.com</span>
+                        </div>
+                        <div class="email-field">
+                            <label>Subject:</label>
+                            <span>RESOLVED: VM-PROD-WEB-03 Performance Issue</span>
+                        </div>
+                        <div class="email-body">
+                            <p>Team,</p>
+                            <p>The critical performance issue has been resolved after 4+ hours of investigation...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="screen-annotation">
+                <div class="stress-indicator exhausted">Stress Level: Exhausted 😴</div>
+                <div class="action-required">Finally resolved, but missed sleep and family time</div>
+            </div>
+        </div>
+    `;
+}
+
+function launchPOVDemo() {
+    const overlay = document.getElementById('pov-demo-overlay');
+    if (overlay) {
+        overlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // Add close functionality
+        const closeBtn = overlay.querySelector('.close-demo-btn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closePOVDemo);
+        }
+        
+        // Close on overlay click
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                closePOVDemo();
+            }
+        });
+        
+        // Close on Escape key
+        document.addEventListener('keydown', handlePOVDemoKeydown);
+    }
+}
+
+function closePOVDemo() {
+    const overlay = document.getElementById('pov-demo-overlay');
+    if (overlay) {
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', handlePOVDemoKeydown);
+    }
+}
+
+function handlePOVDemoKeydown(e) {
+    if (e.key === 'Escape') {
+        closePOVDemo();
+    }
+}
+
+function initPOVDemoNavigation() {
+    document.addEventListener('click', (e) => {
+        const overlay = document.getElementById('pov-demo-overlay');
+        if (!overlay) return;
+        
+        const nextBtn = overlay.querySelector('.next-screen');
+        const prevBtn = overlay.querySelector('.prev-screen');
+        const screenCounter = overlay.querySelector('.screen-counter');
+        const progressFill = overlay.querySelector('.progress-fill');
+        const screens = overlay.querySelectorAll('.demo-screen');
+        
+        let currentScreen = 1;
+        const totalScreens = 6;
+        
+        if (e.target.matches('.next-screen')) {
+            if (currentScreen < totalScreens) {
+                currentScreen++;
+                showDemoScreen(currentScreen);
+            }
+        } else if (e.target.matches('.prev-screen')) {
+            if (currentScreen > 1) {
+                currentScreen--;
+                showDemoScreen(currentScreen);
+            }
+        }
+        
+        function showDemoScreen(screenNum) {
+            screens.forEach(screen => screen.classList.remove('active'));
+            const activeScreen = overlay.querySelector(`[data-screen="${screenNum}"]`);
+            if (activeScreen) {
+                activeScreen.classList.add('active');
+            }
+            
+            // Update navigation
+            prevBtn.disabled = screenNum === 1;
+            nextBtn.disabled = screenNum === totalScreens;
+            
+            // Update progress
+            if (screenCounter) {
+                screenCounter.textContent = `Screen ${screenNum} of ${totalScreens}`;
+            }
+            if (progressFill) {
+                progressFill.style.width = `${(screenNum / totalScreens) * 100}%`;
+            }
+        }
+    });
+}
+
+function initPOVWorkflowToggle() {
+    document.addEventListener('click', (e) => {
+        if (e.target.matches('.workflow-btn')) {
+            const overlay = document.getElementById('pov-demo-overlay');
+            if (!overlay) return;
+            
+            const workflowBtns = overlay.querySelectorAll('.workflow-btn');
+            const workflowContents = overlay.querySelectorAll('.workflow-content');
+            const selectedWorkflow = e.target.dataset.workflow;
+            
+            // Update button states
+            workflowBtns.forEach(btn => btn.classList.remove('active'));
+            e.target.classList.add('active');
+            
+            // Update content visibility
+            workflowContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.classList.contains(`${selectedWorkflow}-workflow`)) {
+                    content.classList.add('active');
+                }
+            });
+        }
+    });
+}
+
+function initPOVTimingAnimations() {
+    // Add realistic typing effects and loading animations
+    setInterval(() => {
+        const overlay = document.getElementById('pov-demo-overlay');
+        if (overlay && overlay.style.display === 'flex') {
+            const typingElements = overlay.querySelectorAll('.typing');
+            typingElements.forEach(element => {
+                // Simulate typing animation
+                element.style.opacity = element.style.opacity === '0.5' ? '1' : '0.5';
+            });
+            
+            const cursors = overlay.querySelectorAll('.cursor');
+            cursors.forEach(cursor => {
+                cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+            });
+        }
+    }, 500);
+}
