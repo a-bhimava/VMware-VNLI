@@ -1,4 +1,4 @@
-<!-- Screen 2: Traditional Workflow Complexity -->
+<!-- Screen 2: Critical Incident Response Comparison -->
 <section class="screen screen-2" data-screen="2" role="region" aria-labelledby="screen2-title">
     <div class="screen-background">
         <div class="datacenter-background"></div>
@@ -7,108 +7,329 @@
     
     <div class="screen-content">
         <header class="screen-header">
-            <h1 id="screen2-title" class="screen-title">Traditional Workflow Complexity</h1>
-            <h2 class="screen-subtitle">Multi-step process that consumes valuable time</h2>
+            <h1 id="screen2-title" class="screen-title">Critical Performance Alert</h1>
+            <h2 class="screen-subtitle">2:47 AM - Production System Down</h2>
+            
+            <!-- Alert Banner -->
+            <div class="alert-banner critical">
+                <span class="alert-icon">🚨</span>
+                <span class="alert-text">CRITICAL: VM-PROD-WEB-03 CPU 98% for 15 minutes</span>
+                <span class="alert-impact">Customer Impact: HIGH</span>
+            </div>
+            
+            <!-- Experience Toggle -->
+            <div class="experience-toggle">
+                <button class="experience-btn traditional-btn active" data-experience="traditional">
+                    <span class="btn-icon">😰</span>
+                    Without VNLI
+                </button>
+                <button class="experience-btn vnli-btn" data-experience="vnli">
+                    <span class="btn-icon">🤖</span>
+                    With VNLI
+                </button>
+            </div>
         </header>
 
-        <div class="workflow-container">
-            <!-- Workflow steps -->
-            <div class="workflow-steps">
-                <div class="workflow-step glassmorphic-card" data-step="1">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>Write PowerCLI Script</h3>
-                        <p>Research commands, write complex queries</p>
-                        <div class="step-timer">
-                            <span class="timer-icon">⏱️</span>
-                            <span class="timer-text">15 minutes</span>
-                        </div>
-                    </div>
-                    <div class="step-arrow">→</div>
+        <!-- Traditional Experience -->
+        <div class="experience-view traditional-view active">
+            <div class="incident-timeline">
+                <div class="timeline-header">
+                    <h3>Traditional Incident Response Timeline</h3>
+                    <div class="total-time pain">Total Resolution Time: 4 hours 15 minutes</div>
                 </div>
-
-                <div class="workflow-step glassmorphic-card" data-step="2">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Debug Syntax Errors</h3>
-                        <p>Fix PowerShell syntax, handle API errors</p>
-                        <div class="step-timer">
-                            <span class="timer-icon">⏱️</span>
-                            <span class="timer-text">20 minutes</span>
+                
+                <div class="timeline-steps">
+                    <div class="timeline-step glassmorphic-card">
+                        <div class="step-time">2:47 AM</div>
+                        <div class="step-content">
+                            <h4>Alert Received</h4>
+                            <p>Sarah wakes up, checks phone, sees critical alert</p>
+                            <div class="step-details">
+                                <span class="detail-tag">PagerDuty notification</span>
+                                <span class="detail-tag">Email flood</span>
+                            </div>
                         </div>
+                        <div class="step-duration">5 min</div>
                     </div>
-                    <div class="step-arrow">→</div>
-                </div>
-
-                <div class="workflow-step glassmorphic-card" data-step="3">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Execute & Interpret</h3>
-                        <p>Run script, analyze results, take action</p>
-                        <div class="step-timer">
-                            <span class="timer-icon">⏱️</span>
-                            <span class="timer-text">10 minutes</span>
+                    
+                    <div class="timeline-step glassmorphic-card">
+                        <div class="step-time">2:52 AM</div>
+                        <div class="step-content">
+                            <h4>Initial Investigation</h4>
+                            <p>Open laptop, VPN connection, multiple tools</p>
+                            <div class="tools-required">
+                                <span class="tool-tag">vCenter Client</span>
+                                <span class="tool-tag">PowerCLI</span>
+                                <span class="tool-tag">Monitoring Dashboard</span>
+                                <span class="tool-tag">Log Analysis</span>
+                            </div>
                         </div>
+                        <div class="step-duration">25 min</div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Total time and cost -->
-            <div class="workflow-summary glassmorphic-card">
-                <div class="summary-content">
-                    <h3>Total Process Time</h3>
-                    <div class="time-breakdown">
-                        <div class="time-item">
-                            <span class="time-label">Script Writing:</span>
-                            <span class="time-value">15 min</span>
+                    
+                    <div class="timeline-step glassmorphic-card">
+                        <div class="step-time">3:17 AM</div>
+                        <div class="step-content">
+                            <h4>Root Cause Analysis</h4>
+                            <p>Manual correlation across systems, script debugging</p>
+                            <div class="analysis-complexity">
+                                <div class="complexity-indicator pain">
+                                    <span class="indicator-icon">🔍</span>
+                                    <span>Manual log correlation</span>
+                                </div>
+                                <div class="complexity-indicator pain">
+                                    <span class="indicator-icon">📊</span>
+                                    <span>Performance metric analysis</span>
+                                </div>
+                                <div class="complexity-indicator pain">
+                                    <span class="indicator-icon">🧩</span>
+                                    <span>System dependency mapping</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="time-item">
-                            <span class="time-label">Debugging:</span>
-                            <span class="time-value">20 min</span>
+                        <div class="step-duration">2h 30min</div>
+                    </div>
+                    
+                    <div class="timeline-step glassmorphic-card">
+                        <div class="step-time">5:47 AM</div>
+                        <div class="step-content">
+                            <h4>Issue Resolution</h4>
+                            <p>Memory leak identified, service restart, verification</p>
+                            <div class="resolution-actions">
+                                <span class="action-tag">Service restart</span>
+                                <span class="action-tag">Memory reallocation</span>
+                                <span class="action-tag">Monitoring adjustment</span>
+                            </div>
                         </div>
-                        <div class="time-item">
-                            <span class="time-label">Execution:</span>
-                            <span class="time-value">10 min</span>
+                        <div class="step-duration">30 min</div>
+                    </div>
+                    
+                    <div class="timeline-step glassmorphic-card">
+                        <div class="step-time">6:17 AM</div>
+                        <div class="step-content">
+                            <h4>Documentation & Follow-up</h4>
+                            <p>Incident report, stakeholder updates, prevention measures</p>
+                            <div class="documentation-tasks">
+                                <span class="doc-tag">Incident report</span>
+                                <span class="doc-tag">Runbook update</span>
+                                <span class="doc-tag">Team notification</span>
+                            </div>
                         </div>
-                        <div class="time-total">
-                            <span class="time-label">Total:</span>
-                            <span class="time-value">45 minutes</span>
-                        </div>
+                        <div class="step-duration">45 min</div>
                     </div>
                 </div>
                 
-                <div class="cost-overlay">
-                    <div class="cost-badge">
-                        <span class="cost-icon">💰</span>
-                        <span class="cost-text">$18K monthly per admin</span>
-                        <span class="cost-subtext">in troubleshooting time</span>
+                <div class="impact-summary pain">
+                    <div class="impact-metric">
+                        <span class="metric-label">System Downtime:</span>
+                        <span class="metric-value">3 hours</span>
+                    </div>
+                    <div class="impact-metric">
+                        <span class="metric-label">Revenue Impact:</span>
+                        <span class="metric-value">$45,000</span>
+                    </div>
+                    <div class="impact-metric">
+                        <span class="metric-label">Administrator Cost:</span>
+                        <span class="metric-value">$318.75</span>
+                    </div>
+                    <div class="impact-metric">
+                        <span class="metric-label">Sleep Lost:</span>
+                        <span class="metric-value">4 hours</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- VNLI Experience -->
+        <div class="experience-view vnli-view">
+            <div class="incident-timeline">
+                <div class="timeline-header">
+                    <h3>VNLI-Powered Incident Response</h3>
+                    <div class="total-time success">Total Resolution Time: 15 minutes</div>
+                </div>
+                
+                <div class="timeline-steps">
+                    <div class="timeline-step glassmorphic-card">
+                        <div class="step-time">2:47 AM</div>
+                        <div class="step-content">
+                            <h4>Smart Alert with Auto-Analysis</h4>
+                            <p>VNLI detects anomaly, performs root cause analysis automatically</p>
+                            <div class="vnli-analysis">
+                                <div class="analysis-item">
+                                    <span class="analysis-icon">🎯</span>
+                                    <span>Root cause: Apache Tomcat memory leak</span>
+                                </div>
+                                <div class="analysis-item">
+                                    <span class="analysis-icon">📊</span>
+                                    <span>Confidence: 99.7%</span>
+                                </div>
+                                <div class="analysis-item">
+                                    <span class="analysis-icon">💡</span>
+                                    <span>Recommended action: Service restart</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-duration">30 sec</div>
+                    </div>
+                    
+                    <div class="timeline-step glassmorphic-card">
+                        <div class="step-time">2:47:30 AM</div>
+                        <div class="step-content">
+                            <h4>Natural Language Query</h4>
+                            <p>Sarah asks: "What's causing the high CPU and how do I fix it?"</p>
+                            <div class="vnli-response">
+                                <div class="query-box">
+                                    <div class="user-query">"What's causing the high CPU usage in VM-PROD-WEB-03 and what's the best way to fix it without impacting other services?"</div>
+                                    <div class="ai-response">
+                                        <h5>Immediate Analysis:</h5>
+                                        <ul>
+                                            <li>Memory leak in Tomcat process (PID 1247)</li>
+                                            <li>Heap utilization: 97% (normal: 45%)</li>
+                                            <li>No impact to dependent services expected</li>
+                                            <li>Recommended: Graceful service restart</li>
+                                        </ul>
+                                        <button class="action-btn auto-fix">Execute Auto-Fix</button>
+                                        <button class="action-btn manual">Manual Control</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-duration">45 sec</div>
+                    </div>
+                    
+                    <div class="timeline-step glassmorphic-card">
+                        <div class="step-time">2:48:15 AM</div>
+                        <div class="step-content">
+                            <h4>Automated Resolution</h4>
+                            <p>VNLI executes fix with Sarah's approval, monitors progress</p>
+                            <div class="auto-actions">
+                                <div class="action-progress">
+                                    <span class="progress-icon">✅</span>
+                                    <span>Graceful Tomcat shutdown</span>
+                                    <span class="progress-time">2 min</span>
+                                </div>
+                                <div class="action-progress">
+                                    <span class="progress-icon">✅</span>
+                                    <span>Memory heap optimization</span>
+                                    <span class="progress-time">1 min</span>
+                                </div>
+                                <div class="action-progress">
+                                    <span class="progress-icon">✅</span>
+                                    <span>Service restart & verification</span>
+                                    <span class="progress-time">3 min</span>
+                                </div>
+                                <div class="action-progress">
+                                    <span class="progress-icon">✅</span>
+                                    <span>Performance monitoring update</span>
+                                    <span class="progress-time">30 sec</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-duration">7 min</div>
+                    </div>
+                    
+                    <div class="timeline-step glassmorphic-card">
+                        <div class="step-time">2:55:15 AM</div>
+                        <div class="step-content">
+                            <h4>Auto-Documentation & Learning</h4>
+                            <p>VNLI documents incident, updates knowledge base, improves future detection</p>
+                            <div class="auto-documentation">
+                                <span class="doc-tag success">Incident report generated</span>
+                                <span class="doc-tag success">Runbook updated</span>
+                                <span class="doc-tag success">ML model refined</span>
+                                <span class="doc-tag success">Team notified</span>
+                            </div>
+                        </div>
+                        <div class="step-duration">5 min</div>
+                    </div>
+                </div>
+                
+                <div class="impact-summary success">
+                    <div class="impact-metric">
+                        <span class="metric-label">System Downtime:</span>
+                        <span class="metric-value">0 minutes</span>
+                    </div>
+                    <div class="impact-metric">
+                        <span class="metric-label">Revenue Impact:</span>
+                        <span class="metric-value">$0</span>
+                    </div>
+                    <div class="impact-metric">
+                        <span class="metric-label">Administrator Cost:</span>
+                        <span class="metric-value">$18.75</span>
+                    </div>
+                    <div class="impact-metric">
+                        <span class="metric-label">Sleep Lost:</span>
+                        <span class="metric-value">0 hours</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Complexity indicators -->
-        <div class="complexity-indicators">
-            <div class="complexity-item glassmorphic-card">
-                <div class="complexity-icon">📚</div>
-                <h4>Learning Curve</h4>
-                <p>Months to master PowerCLI syntax</p>
+        <!-- Comparison Summary -->
+        <div class="comparison-summary glassmorphic-card">
+            <h3>Incident Response Comparison</h3>
+            <div class="comparison-metrics">
+                <div class="metric-comparison">
+                    <div class="metric-label">Resolution Time</div>
+                    <div class="metric-bars">
+                        <div class="metric-bar traditional">
+                            <span class="bar-label">Traditional</span>
+                            <div class="bar-fill" style="width: 100%"></div>
+                            <span class="bar-value">4h 15min</span>
+                        </div>
+                        <div class="metric-bar vnli">
+                            <span class="bar-label">VNLI</span>
+                            <div class="bar-fill success" style="width: 6%"></div>
+                            <span class="bar-value">15min</span>
+                        </div>
+                    </div>
+                    <div class="improvement-indicator">🎯 94% faster</div>
+                </div>
+                
+                <div class="metric-comparison">
+                    <div class="metric-label">Business Impact</div>
+                    <div class="metric-bars">
+                        <div class="metric-bar traditional">
+                            <span class="bar-label">Traditional</span>
+                            <div class="bar-fill" style="width: 100%"></div>
+                            <span class="bar-value">$45,318</span>
+                        </div>
+                        <div class="metric-bar vnli">
+                            <span class="bar-label">VNLI</span>
+                            <div class="bar-fill success" style="width: 0.4%"></div>
+                            <span class="bar-value">$18</span>
+                        </div>
+                    </div>
+                    <div class="improvement-indicator">💰 99.96% cost reduction</div>
+                </div>
             </div>
-            <div class="complexity-item glassmorphic-card">
-                <div class="complexity-icon">🔍</div>
-                <h4>Documentation</h4>
-                <p>Constant reference to API docs</p>
-            </div>
-            <div class="complexity-item glassmorphic-card">
-                <div class="complexity-icon">🔄</div>
-                <h4>Repetition</h4>
-                <p>Same complex process for every query</p>
+            
+            <div class="key-benefits">
+                <h4>VNLI Key Benefits:</h4>
+                <div class="benefit-list">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🤖</span>
+                        <span>Automated root cause analysis</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">💬</span>
+                        <span>Natural language interaction</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">⚡</span>
+                        <span>Zero-downtime resolution</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">📚</span>
+                        <span>Continuous learning & improvement</span>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Navigation hint -->
         <div class="navigation-hint">
-            <p>See how VNLI transforms this workflow →</p>
+            <p>Continue to see capacity planning scenario →</p>
         </div>
     </div>
 </section>

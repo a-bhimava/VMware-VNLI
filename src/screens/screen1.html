@@ -1,4 +1,4 @@
-<!-- Screen 1: Current State - Administrator Frustration -->
+<!-- Screen 1: Enhanced PoV Comparison - Morning Health Check -->
 <section class="screen screen-1" data-screen="1" role="region" aria-labelledby="screen1-title">
     <div class="screen-background">
         <div class="background-pattern"></div>
@@ -6,104 +6,249 @@
     
     <div class="screen-content">
         <header class="screen-header">
-            <h1 id="screen1-title" class="screen-title">Sarah's Daily Challenge</h1>
-            <h2 class="screen-subtitle">Traditional VMware Management</h2>
-            <div class="time-indicator glassmorphic-card">
-                <span class="time-icon">⏱️</span>
-                <span class="time-text">45 minutes to write and debug script</span>
+            <h1 id="screen1-title" class="screen-title">Daily VM Health Check</h1>
+            <h2 class="screen-subtitle">8:00 AM - Systems Administrator Daily Routine</h2>
+            
+            <!-- Experience Toggle -->
+            <div class="experience-toggle">
+                <button class="experience-btn traditional-btn active" data-experience="traditional">
+                    <span class="btn-icon">😰</span>
+                    Without VNLI
+                </button>
+                <button class="experience-btn vnli-btn" data-experience="vnli">
+                    <span class="btn-icon">😊</span>
+                    With VNLI
+                </button>
             </div>
         </header>
 
-        <div class="split-layout">
-            <!-- Left side: Complex PowerCLI terminal -->
-            <div class="terminal-section">
-                <div class="glassmorphic-card terminal-card">
-                    <div class="terminal-header">
-                        <div class="terminal-controls">
-                            <span class="control close"></span>
-                            <span class="control minimize"></span>
-                            <span class="control maximize"></span>
-                        </div>
-                        <span class="terminal-title">PowerCLI Terminal</span>
-                    </div>
-                    <div class="terminal-content">
-                        <div class="terminal-line">
-                            <span class="prompt">PS></span>
-                            <span class="command">Get-VM | Where-Object {$_.PowerState -eq "PoweredOn"} | Get-View | Select-Object Name, @{Name="CPU";Expression={$_.Summary.QuickStats.OverallCpuUsage}}, @{Name="Memory";Expression={$_.Summary.QuickStats.GuestMemoryUsage}}, @{Name="Disk";Expression={$_.Summary.QuickStats.OverallCpuUsage}} | Where-Object {$_.CPU -gt 80 -or $_.Memory -gt 80} | Sort-Object CPU -Descending | Format-Table -AutoSize</span>
-                        </div>
-                        <div class="terminal-line">
-                            <span class="output"># 47 lines of complex PowerShell code</span>
-                        </div>
-                        <div class="terminal-line">
-                            <span class="output"># Multiple API calls and data transformations</span>
-                        </div>
-                        <div class="terminal-line">
-                            <span class="output"># Error handling and debugging required</span>
-                        </div>
-                        <div class="terminal-line error">
-                            <span class="output">ERROR: Property 'OverallCpuUsage' not found</span>
-                        </div>
-                        <div class="terminal-line">
-                            <span class="output"># 20 minutes spent debugging syntax errors</span>
-                        </div>
-                    </div>
+        <!-- Traditional Experience -->
+        <div class="experience-view traditional-view active">
+            <div class="workflow-comparison">
+                <div class="time-indicator pain">
+                    <span class="time-icon">⏱️</span>
+                    <span class="time-text">30 minutes - Multiple Tools Required</span>
                 </div>
-            </div>
-
-            <!-- Right side: Frustrated administrator -->
-            <div class="admin-section">
-                <div class="admin-illustration">
-                    <div class="admin-character">
-                        <div class="admin-head"></div>
-                        <div class="admin-body"></div>
-                        <div class="admin-arms">
-                            <div class="arm left"></div>
-                            <div class="arm right"></div>
+                
+                <div class="workflow-steps">
+                    <div class="workflow-step glassmorphic-card">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Open vCenter Client</h3>
+                            <p>Wait for slow loading, navigate complex interface</p>
+                            <div class="step-tools">
+                                <span class="tool-tag">vCenter</span>
+                                <span class="tool-tag">Web Browser</span>
+                            </div>
                         </div>
+                        <div class="step-duration">3 min</div>
                     </div>
-                    <div class="monitor-setup">
-                        <div class="monitor primary"></div>
-                        <div class="monitor secondary"></div>
-                        <div class="monitor tertiary"></div>
+                    
+                    <div class="workflow-step glassmorphic-card">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Write PowerCLI Script</h3>
+                            <p>Complex queries for VM performance metrics</p>
+                            <div class="code-snippet">
+                                <code>Get-VM | Where-Object {$_.PowerState -eq "PoweredOn"} | 
+Get-View | Select-Object Name, 
+@{Name="CPU";Expression={$_.Summary.QuickStats...}}</code>
+                            </div>
+                        </div>
+                        <div class="step-duration">15 min</div>
+                    </div>
+                    
+                    <div class="workflow-step glassmorphic-card">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Debug Syntax Errors</h3>
+                            <p>Fix API calls, property names, data formatting</p>
+                            <div class="error-indicators">
+                                <span class="error-tag">Property not found</span>
+                                <span class="error-tag">Invalid syntax</span>
+                                <span class="error-tag">Null reference</span>
+                            </div>
+                        </div>
+                        <div class="step-duration">10 min</div>
+                    </div>
+                    
+                    <div class="workflow-step glassmorphic-card">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Export & Format Data</h3>
+                            <p>Manually format results for reporting</p>
+                            <div class="output-formats">
+                                <span class="format-tag">CSV Export</span>
+                                <span class="format-tag">Excel Formatting</span>
+                            </div>
+                        </div>
+                        <div class="step-duration">2 min</div>
                     </div>
                 </div>
                 
-                <div class="admin-thoughts">
-                    <div class="thought-bubble glassmorphic-card">
-                        <p>"Why is this so complicated?"</p>
+                <div class="admin-frustration">
+                    <div class="admin-persona">
+                        <div class="persona-avatar">👩‍💻</div>
+                        <h4>Sarah Chen</h4>
+                        <p>Senior VMware Administrator</p>
                     </div>
-                    <div class="thought-bubble glassmorphic-card">
-                        <p>"I just want to see CPU usage..."</p>
+                    <div class="thought-bubble pain">
+                        <p>"Every morning, the same routine. Write scripts, debug errors, export data. There has to be a better way..."</p>
+                    </div>
+                    <div class="stress-meter pain">
+                        <span class="stress-label">Stress Level:</span>
+                        <div class="stress-bar">
+                            <div class="stress-fill" style="width: 85%"></div>
+                        </div>
+                        <span class="stress-value">High</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- VNLI Experience -->
+        <div class="experience-view vnli-view">
+            <div class="workflow-comparison">
+                <div class="time-indicator success">
+                    <span class="time-icon">⚡</span>
+                    <span class="time-text">2 minutes - Single Natural Language Query</span>
+                </div>
+                
+                <div class="vnli-interface">
+                    <div class="vnli-chat glassmorphic-card">
+                        <div class="chat-header">
+                            <h3>VNLI Assistant</h3>
+                            <div class="status-indicator online">Ready</div>
+                        </div>
+                        
+                        <div class="chat-conversation">
+                            <div class="message user-message">
+                                <div class="message-content">
+                                    "Show me VM health status for all servers with high CPU or memory usage"
+                                </div>
+                                <div class="message-time">8:00 AM</div>
+                            </div>
+                            
+                            <div class="message ai-message">
+                                <div class="typing-indicator">VNLI is analyzing your infrastructure...</div>
+                                <div class="message-content analysis-result">
+                                    <h4>VM Health Analysis Complete</h4>
+                                    <div class="health-summary">
+                                        <div class="metric-card success">
+                                            <span class="metric-icon">✅</span>
+                                            <span class="metric-label">Healthy VMs</span>
+                                            <span class="metric-value">247</span>
+                                        </div>
+                                        <div class="metric-card warning">
+                                            <span class="metric-icon">⚠️</span>
+                                            <span class="metric-label">High CPU</span>
+                                            <span class="metric-value">8</span>
+                                        </div>
+                                        <div class="metric-card critical">
+                                            <span class="metric-icon">🚨</span>
+                                            <span class="metric-label">Critical</span>
+                                            <span class="metric-value">2</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="quick-actions">
+                                        <button class="action-btn primary">View Details</button>
+                                        <button class="action-btn secondary">Export Report</button>
+                                        <button class="action-btn secondary">Set Alerts</button>
+                                    </div>
+                                </div>
+                                <div class="message-time">8:00:15 AM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="admin-satisfaction">
+                    <div class="admin-persona">
+                        <div class="persona-avatar">👩‍💻</div>
+                        <h4>Sarah Chen</h4>
+                        <p>Senior VMware Administrator</p>
+                    </div>
+                    <div class="thought-bubble success">
+                        <p>"Incredible! I got exactly what I needed in 15 seconds. VNLI understood my question and gave me actionable insights immediately."</p>
+                    </div>
+                    <div class="stress-meter success">
+                        <span class="stress-label">Stress Level:</span>
+                        <div class="stress-bar">
+                            <div class="stress-fill success" style="width: 15%"></div>
+                        </div>
+                        <span class="stress-value">Low</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Pain points card -->
-        <div class="pain-points glassmorphic-card">
-            <h3>Current Pain Points</h3>
-            <div class="pain-points-grid">
-                <div class="pain-point">
-                    <div class="pain-icon">🔧</div>
-                    <h4>Manual Scripting</h4>
-                    <p>Complex PowerShell commands for simple queries</p>
+        <!-- Impact Comparison -->
+        <div class="impact-comparison glassmorphic-card">
+            <h3>Daily Impact Analysis</h3>
+            <div class="comparison-grid">
+                <div class="traditional-impact">
+                    <h4>Without VNLI</h4>
+                    <div class="impact-metrics">
+                        <div class="impact-metric pain">
+                            <span class="metric-icon">⏱️</span>
+                            <span class="metric-label">Time</span>
+                            <span class="metric-value">30 min</span>
+                        </div>
+                        <div class="impact-metric pain">
+                            <span class="metric-icon">💰</span>
+                            <span class="metric-label">Cost</span>
+                            <span class="metric-value">$37.50</span>
+                        </div>
+                        <div class="impact-metric pain">
+                            <span class="metric-icon">🔧</span>
+                            <span class="metric-label">Tools</span>
+                            <span class="metric-value">4</span>
+                        </div>
+                        <div class="impact-metric pain">
+                            <span class="metric-icon">😰</span>
+                            <span class="metric-label">Errors</span>
+                            <span class="metric-value">3-5</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="pain-point">
-                    <div class="pain-icon">🔄</div>
-                    <h4>Context Switching</h4>
-                    <p>Constantly switching between tools and interfaces</p>
+                
+                <div class="vnli-impact">
+                    <h4>With VNLI</h4>
+                    <div class="impact-metrics">
+                        <div class="impact-metric success">
+                            <span class="metric-icon">⚡</span>
+                            <span class="metric-label">Time</span>
+                            <span class="metric-value">2 min</span>
+                        </div>
+                        <div class="impact-metric success">
+                            <span class="metric-icon">💚</span>
+                            <span class="metric-label">Cost</span>
+                            <span class="metric-value">$2.50</span>
+                        </div>
+                        <div class="impact-metric success">
+                            <span class="metric-icon">🎯</span>
+                            <span class="metric-label">Tools</span>
+                            <span class="metric-value">1</span>
+                        </div>
+                        <div class="impact-metric success">
+                            <span class="metric-icon">😊</span>
+                            <span class="metric-label">Errors</span>
+                            <span class="metric-value">0</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="pain-point">
-                    <div class="pain-icon">⚠️</div>
-                    <h4>Error-Prone</h4>
-                    <p>Syntax errors and debugging consume valuable time</p>
-                </div>
+            </div>
+            
+            <div class="savings-highlight">
+                <h4>Daily Savings: 28 minutes • $35.00</h4>
+                <p>Multiply by 250 working days: <strong>116 hours • $8,750 annually per administrator</strong></p>
             </div>
         </div>
 
         <!-- Navigation hint -->
         <div class="navigation-hint">
-            <p>Scroll or use arrow keys to continue →</p>
+            <p>Continue to see incident response comparison →</p>
         </div>
     </div>
 </section>

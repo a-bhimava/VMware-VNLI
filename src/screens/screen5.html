@@ -1,4 +1,4 @@
-<!-- Screen 5: Instant Results Dashboard -->
+<!-- Screen 5: End-of-Day Summary & Handoff -->
 <section class="screen screen-5" data-screen="5" role="region" aria-labelledby="screen5-title">
     <div class="screen-background">
         <div class="dashboard-background"></div>
@@ -7,164 +7,405 @@
     
     <div class="screen-content">
         <header class="screen-header">
-            <h1 id="screen5-title" class="screen-title">Instant Results Dashboard</h1>
-            <h2 class="screen-subtitle">Comprehensive insights in seconds</h2>
-            <div class="comparison-banner glassmorphic-card">
-                <span class="comparison-text">30 seconds vs 45 minutes traditional method</span>
-                <div class="time-savings">98% faster</div>
+            <h1 id="screen5-title" class="screen-title">End-of-Day Status Summary</h1>
+            <h2 class="screen-subtitle">5:45 PM - Shift Handoff Preparation</h2>
+            
+            <!-- Scenario Context -->
+            <div class="scenario-context glassmorphic-card">
+                <span class="context-icon">🌅</span>
+                <span class="context-text">Daily status report needed for night shift handoff</span>
+            </div>
+            
+            <!-- Experience Toggle -->
+            <div class="experience-toggle">
+                <button class="experience-btn traditional-btn active" data-experience="traditional">
+                    <span class="btn-icon">📄</span>
+                    Manual Reports
+                </button>
+                <button class="experience-btn vnli-btn" data-experience="vnli">
+                    <span class="btn-icon">🤖</span>
+                    VNLI Summary
+                </button>
             </div>
         </header>
 
-        <div class="dashboard-container">
-            <!-- VM Performance Metrics -->
-            <div class="metrics-section">
-                <div class="vm-performance glassmorphic-card">
-                    <h3>VM Performance Metrics</h3>
-                    <div class="chart-container">
-                        <div class="chart-placeholder">
-                            <div class="chart-bars">
-                                <div class="bar" style="height: 85%">
-                                    <span class="bar-label">VM-001</span>
-                                    <span class="bar-value">85%</span>
+        <!-- Traditional End-of-Day Process -->
+        <div class="experience-view traditional-view active">
+            <div class="eod-process">
+                <div class="process-header">
+                    <h3>Traditional End-of-Day Status Preparation</h3>
+                    <div class="process-duration pain">Duration: 45 minutes</div>
+                </div>
+                
+                <div class="eod-tasks">
+                    <div class="task-section glassmorphic-card">
+                        <div class="section-header">
+                            <h4>System Status Collection</h4>
+                            <div class="section-time">20 minutes</div>
+                        </div>
+                        <div class="manual-tasks">
+                            <div class="task-item">
+                                <span class="task-icon">📊</span>
+                                <div class="task-content">
+                                    <span class="task-name">Check each cluster health manually</span>
+                                    <span class="task-detail">Navigate through vCenter, check 12 clusters</span>
                                 </div>
-                                <div class="bar" style="height: 92%">
-                                    <span class="bar-label">VM-002</span>
-                                    <span class="bar-value">92%</span>
+                                <span class="task-time">8 min</span>
+                            </div>
+                            <div class="task-item">
+                                <span class="task-icon">🚨</span>
+                                <div class="task-content">
+                                    <span class="task-name">Review alerts from multiple systems</span>
+                                    <span class="task-detail">Check email, SCOM, vCenter, and monitoring tools</span>
                                 </div>
-                                <div class="bar" style="height: 78%">
-                                    <span class="bar-label">VM-003</span>
-                                    <span class="bar-value">78%</span>
+                                <span class="task-time">7 min</span>
+                            </div>
+                            <div class="task-item">
+                                <span class="task-icon">📄</span>
+                                <div class="task-content">
+                                    <span class="task-name">Document ongoing issues</span>
+                                    <span class="task-detail">Update ticket system, create status notes</span>
                                 </div>
-                                <div class="bar" style="height: 95%">
-                                    <span class="bar-label">VM-004</span>
-                                    <span class="bar-value">95%</span>
-                                </div>
+                                <span class="task-time">5 min</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="task-section glassmorphic-card">
+                        <div class="section-header">
+                            <h4>Report Generation</h4>
+                            <div class="section-time">15 minutes</div>
+                        </div>
+                        <div class="report-challenges">
+                            <div class="challenge-item">
+                                <span class="challenge-icon">✍️</span>
+                                <span>Manually format status summary in Word/email</span>
+                            </div>
+                            <div class="challenge-item">
+                                <span class="challenge-icon">🗺️</span>
+                                <span>Copy-paste metrics from different dashboards</span>
+                            </div>
+                            <div class="challenge-item">
+                                <span class="challenge-icon">📋</span>
+                                <span>Cross-reference with change management calendar</span>
+                            </div>
+                            <div class="challenge-item">
+                                <span class="challenge-icon">😅</span>
+                                <span>Rush to finish before leaving office</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="task-section glassmorphic-card">
+                        <div class="section-header">
+                            <h4>Communication & Handoff</h4>
+                            <div class="section-time">10 minutes</div>
+                        </div>
+                        <div class="handoff-issues">
+                            <div class="issue-item pain">
+                                <span class="issue-icon">📧</span>
+                                <span>Send email to night shift with attachment</span>
+                            </div>
+                            <div class="issue-item pain">
+                                <span class="issue-icon">📞</span>
+                                <span>Call night shift lead to explain complex issues</span>
+                            </div>
+                            <div class="issue-item pain">
+                                <span class="issue-icon">⚠️</span>
+                                <span>Risk of miscommunication on critical items</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Affected Systems List -->
-                <div class="affected-systems glassmorphic-card">
-                    <h3>Affected Systems</h3>
-                    <div class="systems-list">
-                        <div class="system-item">
-                            <div class="system-status critical"></div>
-                            <div class="system-info">
-                                <span class="system-name">VM-004 (Web Server)</span>
-                                <span class="system-details">CPU: 95% | Memory: 87%</span>
-                            </div>
-                            <div class="system-actions">
-                                <button class="action-btn">View Details</button>
-                            </div>
+                
+                <div class="traditional-outcome pain">
+                    <h4>Typical End-of-Day Impact:</h4>
+                    <div class="outcome-metrics">
+                        <div class="outcome-metric">
+                            <span class="metric-label">Total Time:</span>
+                            <span class="metric-value">45 minutes</span>
                         </div>
-                        <div class="system-item">
-                            <div class="system-status warning"></div>
-                            <div class="system-info">
-                                <span class="system-name">VM-002 (Database)</span>
-                                <span class="system-details">CPU: 92% | Memory: 45%</span>
-                            </div>
-                            <div class="system-actions">
-                                <button class="action-btn">View Details</button>
-                            </div>
+                        <div class="outcome-metric">
+                            <span class="metric-label">Stress Level:</span>
+                            <span class="metric-value">High</span>
                         </div>
-                        <div class="system-item">
-                            <div class="system-status warning"></div>
-                            <div class="system-info">
-                                <span class="system-name">VM-001 (App Server)</span>
-                                <span class="system-details">CPU: 85% | Memory: 72%</span>
-                            </div>
-                            <div class="system-actions">
-                                <button class="action-btn">View Details</button>
-                            </div>
+                        <div class="outcome-metric">
+                            <span class="metric-label">Information Quality:</span>
+                            <span class="metric-value">Variable</span>
+                        </div>
+                        <div class="outcome-metric">
+                            <span class="metric-label">Late Departure:</span>
+                            <span class="metric-value">Common</span>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Recommended Actions -->
-            <div class="recommendations-section">
-                <div class="recommended-actions glassmorphic-card">
-                    <h3>Recommended Actions</h3>
-                    <div class="actions-list">
-                        <div class="action-item priority-high">
-                            <div class="action-priority">High</div>
-                            <div class="action-content">
-                                <h4>Scale VM-004 Resources</h4>
-                                <p>Increase CPU and memory allocation to handle current load</p>
-                                <button class="remediation-btn">Apply Fix</button>
-                            </div>
+        </div>
+        
+        <!-- VNLI End-of-Day Process -->
+        <div class="experience-view vnli-view">
+            <div class="eod-process">
+                <div class="process-header">
+                    <h3>VNLI-Powered End-of-Day Summary</h3>
+                    <div class="process-duration success">Duration: 5 minutes</div>
+                </div>
+                
+                <div class="vnli-eod-demo">
+                    <div class="eod-conversation glassmorphic-card">
+                        <div class="conversation-header">
+                            <h4>Automated Daily Status Generation</h4>
+                            <div class="generation-time">Started: 5:45 PM</div>
                         </div>
-                        <div class="action-item priority-medium">
-                            <div class="action-priority">Medium</div>
-                            <div class="action-content">
-                                <h4>Optimize VM-002 Queries</h4>
-                                <p>Review database queries causing high CPU usage</p>
-                                <button class="remediation-btn">View Analysis</button>
+                        
+                        <div class="eod-chat">
+                            <div class="message user-message">
+                                <div class="message-content">
+                                    "Generate today's end-of-day status summary for night shift handoff including system health, ongoing issues, and recommended actions."
+                                </div>
+                                <div class="message-time">5:45 PM</div>
                             </div>
-                        </div>
-                        <div class="action-item priority-low">
-                            <div class="action-priority">Low</div>
-                            <div class="action-content">
-                                <h4>Monitor VM-001 Trends</h4>
-                                <p>Set up alerts for future CPU spikes</p>
-                                <button class="remediation-btn">Configure</button>
+                            
+                            <div class="message ai-message">
+                                <div class="message-content">
+                                    <h5>Daily Status Summary - December 15, 2023</h5>
+                                    <div class="status-sections">
+                                        <div class="status-section">
+                                            <div class="section-header">
+                                                <span class="section-icon">✅</span>
+                                                <span class="section-title">Overall Infrastructure Health</span>
+                                                <span class="health-status good">GOOD</span>
+                                            </div>
+                                            <div class="section-metrics">
+                                                <div class="metric-item">
+                                                    <span class="metric-name">Cluster Health:</span>
+                                                    <span class="metric-value">12/12 Healthy</span>
+                                                </div>
+                                                <div class="metric-item">
+                                                    <span class="metric-name">VM Count:</span>
+                                                    <span class="metric-value">2,847 Running</span>
+                                                </div>
+                                                <div class="metric-item">
+                                                    <span class="metric-name">Resource Utilization:</span>
+                                                    <span class="metric-value">CPU 68%, Mem 72%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="status-section">
+                                            <div class="section-header">
+                                                <span class="section-icon">⚠️</span>
+                                                <span class="section-title">Active Issues (2)</span>
+                                                <span class="health-status warning">MONITORING</span>
+                                            </div>
+                                            <div class="issue-list">
+                                                <div class="issue-item">
+                                                    <div class="issue-priority medium">MED</div>
+                                                    <div class="issue-details">
+                                                        <div class="issue-title">ESXi-PROD-07 Memory Usage</div>
+                                                        <div class="issue-desc">Running at 89% - scheduled for memory upgrade next week</div>
+                                                        <div class="issue-action">Action: Monitor closely, alert if exceeds 95%</div>
+                                                    </div>
+                                                </div>
+                                                <div class="issue-item">
+                                                    <div class="issue-priority low">LOW</div>
+                                                    <div class="issue-details">
+                                                        <div class="issue-title">Storage Array Latency Spike</div>
+                                                        <div class="issue-desc">Brief spike at 2:30 PM, now normal (investigating)</div>
+                                                        <div class="issue-action">Action: Vendor reviewing logs</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="status-section">
+                                            <div class="section-header">
+                                                <span class="section-icon">📅</span>
+                                                <span class="section-title">Scheduled Maintenance</span>
+                                                <span class="health-status info">PLANNED</span>
+                                            </div>
+                                            <div class="maintenance-list">
+                                                <div class="maintenance-item">
+                                                    <div class="maintenance-date">Tonight 11 PM</div>
+                                                    <div class="maintenance-details">
+                                                        <div class="maintenance-title">Windows Updates - DEV Environment</div>
+                                                        <div class="maintenance-impact">No production impact expected</div>
+                                                    </div>
+                                                </div>
+                                                <div class="maintenance-item">
+                                                    <div class="maintenance-date">Sunday 2 AM</div>
+                                                    <div class="maintenance-details">
+                                                        <div class="maintenance-title">Storage Array Firmware Update</div>
+                                                        <div class="maintenance-impact">Brief I/O pause expected (~2 minutes)</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="summary-actions">
+                                        <button class="action-btn primary">Send to Night Shift</button>
+                                        <button class="action-btn secondary">Export PDF</button>
+                                        <button class="action-btn secondary">Update Dashboard</button>
+                                    </div>
+                                </div>
+                                <div class="message-time">5:46:30 PM</div>
+                            </div>
+                            
+                            <div class="message user-message">
+                                <div class="message-content">
+                                    "Include tomorrow's key activities that night shift should know about."
+                                </div>
+                                <div class="message-time">5:47 PM</div>
+                            </div>
+                            
+                            <div class="message ai-message">
+                                <div class="message-content">
+                                    <h5>Tomorrow's Key Activities</h5>
+                                    <div class="tomorrow-activities">
+                                        <div class="activity-item">
+                                            <div class="activity-time">6:00 AM</div>
+                                            <div class="activity-details">
+                                                <div class="activity-title">Database Backup Validation</div>
+                                                <div class="activity-note">Auto-check will run, no action needed unless alerts</div>
+                                            </div>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-time">9:00 AM</div>
+                                            <div class="activity-details">
+                                                <div class="activity-title">Quarterly Business Review Meeting</div>
+                                                <div class="activity-note">Day shift will need current quarter metrics ready</div>
+                                            </div>
+                                        </div>
+                                        <div class="activity-item">
+                                            <div class="activity-time">2:00 PM</div>
+                                            <div class="activity-details">
+                                                <div class="activity-title">New Application Deployment</div>
+                                                <div class="activity-note">CRM system v3.2 - monitor post-deployment performance</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="handoff-note">
+                                        <p><strong>Night Shift Focus:</strong> Monitor ESXi-PROD-07 memory usage and investigate storage latency logs when vendor responds.</p>
+                                    </div>
+                                </div>
+                                <div class="message-time">5:47:45 PM</div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- One-click Remediation -->
-                <div class="remediation-panel glassmorphic-card">
-                    <h3>One-Click Remediation</h3>
-                    <div class="remediation-options">
-                        <button class="remediation-option">
-                            <span class="option-icon">⚡</span>
-                            <span class="option-text">Scale Resources</span>
-                        </button>
-                        <button class="remediation-option">
-                            <span class="option-icon">🔄</span>
-                            <span class="option-text">Restart Services</span>
-                        </button>
-                        <button class="remediation-option">
-                            <span class="option-icon">📊</span>
-                            <span class="option-text">Generate Report</span>
-                        </button>
-                        <button class="remediation-option">
-                            <span class="option-icon">🔔</span>
-                            <span class="option-text">Set Alerts</span>
-                        </button>
+                
+                <div class="vnli-outcome success">
+                    <h4>VNLI End-of-Day Impact:</h4>
+                    <div class="outcome-metrics">
+                        <div class="outcome-metric">
+                            <span class="metric-label">Total Time:</span>
+                            <span class="metric-value">5 minutes</span>
+                        </div>
+                        <div class="outcome-metric">
+                            <span class="metric-label">Stress Level:</span>
+                            <span class="metric-value">None</span>
+                        </div>
+                        <div class="outcome-metric">
+                            <span class="metric-label">Information Quality:</span>
+                            <span class="metric-value">Comprehensive</span>
+                        </div>
+                        <div class="outcome-metric">
+                            <span class="metric-label">On-Time Departure:</span>
+                            <span class="metric-value">Guaranteed</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Performance Summary -->
-        <div class="performance-summary glassmorphic-card">
-            <h3>Query Performance Summary</h3>
-            <div class="summary-grid">
-                <div class="summary-item">
-                    <span class="summary-value">4</span>
-                    <span class="summary-label">VMs Found</span>
+        <!-- End-of-Day Comparison Summary -->
+        <div class="eod-comparison glassmorphic-card">
+            <h3>End-of-Day Process Transformation</h3>
+            <div class="comparison-overview">
+                <div class="daily-impact">
+                    <h4>Daily Work-Life Impact</h4>
+                    <div class="impact-comparison">
+                        <div class="impact-traditional">
+                            <h5>Without VNLI</h5>
+                            <div class="impact-metrics">
+                                <div class="impact-metric pain">
+                                    <span class="metric-icon">🕰️</span>
+                                    <span class="metric-text">Leaves office 45 min late</span>
+                                </div>
+                                <div class="impact-metric pain">
+                                    <span class="metric-icon">😰</span>
+                                    <span class="metric-text">High stress at day end</span>
+                                </div>
+                                <div class="impact-metric pain">
+                                    <span class="metric-icon">📧</span>
+                                    <span class="metric-text">Manual report formatting</span>
+                                </div>
+                                <div class="impact-metric pain">
+                                    <span class="metric-icon">⚠️</span>
+                                    <span class="metric-text">Risk of missing critical info</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="impact-vnli">
+                            <h5>With VNLI</h5>
+                            <div class="impact-metrics">
+                                <div class="impact-metric success">
+                                    <span class="metric-icon">🎅</span>
+                                    <span class="metric-text">Leaves on time every day</span>
+                                </div>
+                                <div class="impact-metric success">
+                                    <span class="metric-icon">😊</span>
+                                    <span class="metric-text">Relaxed, confident handoff</span>
+                                </div>
+                                <div class="impact-metric success">
+                                    <span class="metric-icon">🤖</span>
+                                    <span class="metric-text">Automated, comprehensive reports</span>
+                                </div>
+                                <div class="impact-metric success">
+                                    <span class="metric-icon">🎯</span>
+                                    <span class="metric-text">100% coverage, zero missed items</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="summary-item">
-                    <span class="summary-value">3</span>
-                    <span class="summary-label">Critical Issues</span>
+                
+                <div class="cumulative-savings">
+                    <h4>Annual Work-Life Improvement</h4>
+                    <div class="savings-grid">
+                        <div class="savings-metric">
+                            <span class="savings-value">187 hours</span>
+                            <span class="savings-label">Time returned to personal life</span>
+                        </div>
+                        <div class="savings-metric">
+                            <span class="savings-value">250 days</span>
+                            <span class="savings-label">On-time departures</span>
+                        </div>
+                        <div class="savings-metric">
+                            <span class="savings-value">$14,025</span>
+                            <span class="savings-label">Annual labor cost savings</span>
+                        </div>
+                        <div class="savings-metric">
+                            <span class="savings-value">95%</span>
+                            <span class="savings-label">Stress reduction</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="summary-item">
-                    <span class="summary-value">30s</span>
-                    <span class="summary-label">Total Time</span>
-                </div>
-                <div class="summary-item">
-                    <span class="summary-value">98%</span>
-                    <span class="summary-label">Time Saved</span>
-                </div>
+            </div>
+            
+            <div class="transformation-quote">
+                <blockquote>
+                    "VNLI transformed my daily routine from chaos to calm. I now leave work confident that the night shift has everything they need, and I get home in time for dinner with my family."
+                    <cite>- Sarah Chen, Senior VMware Administrator</cite>
+                </blockquote>
             </div>
         </div>
 
         <!-- Navigation hint -->
         <div class="navigation-hint">
-            <p>Discover AI-powered insights →</p>
+            <p>See the complete transformation summary →</p>
         </div>
     </div>
 </section>

@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initROIPanel();
     initKeyboardNavigation();
     initAnimations();
+    initTypingSimulation();
+    initInteractiveElements();
     
     console.log('VNLI POV Experience initialized successfully');
 });
@@ -483,6 +485,28 @@ document.addEventListener('DOMContentLoaded', () => {
             trackInteraction(`Action Button: ${btn.textContent.trim()}`, 'VNLI Interaction');
         });
     });
+    
+    // Handle alert action buttons (Investigate, Acknowledge)
+    document.querySelectorAll('.alert-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const buttonText = btn.textContent.trim();
+            
+            if (buttonText === 'Investigate') {
+                // Navigate to Scene 2 (Investigation Phase)
+                const scene2Dot = document.querySelector('[data-scene="2"]');
+                if (scene2Dot) {
+                    scene2Dot.click();
+                }
+                trackInteraction('Alert: Investigate clicked', 'Workflow Interaction');
+            } else if (buttonText === 'Acknowledge') {
+                // Add visual feedback for acknowledge
+                btn.style.background = '#666';
+                btn.textContent = 'Acknowledged';
+                btn.disabled = true;
+                trackInteraction('Alert: Acknowledge clicked', 'Workflow Interaction');
+            }
+        });
+    });
 });
 
 // Initialize additional features
@@ -490,6 +514,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTypingEffects();
     initTerminalCursor();
     trackPerformance();
+    initSavingsCalculator();
     
     // Animate stress meters when scene becomes active
     const sceneObserver = new MutationObserver((mutations) => {
@@ -497,6 +522,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (mutation.target.classList.contains('active') && mutation.target.classList.contains('pov-scene')) {
                 setTimeout(animateStressMeters, 500);
                 setTimeout(animateCharts, 1000);
+                setTimeout(() => {
+                    // Trigger interactive elements when scene becomes active
+                    const activeScene = mutation.target;
+                    const progressBars = activeScene.querySelectorAll('.progress-bar, .stress-bar');
+                    progressBars.forEach(animateProgressBar);
+                }, 1200);
             }
         });
     });
@@ -504,26 +535,101 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.pov-scene').forEach(scene => {
         sceneObserver.observe(scene, { attributes: true, attributeFilter: ['class'] });
     });
+    
+    // Enhanced screen navigation for new scenarios
+    const screenNavigation = document.querySelectorAll('.screen');
+    screenNavigation.forEach((screen, index) => {
+        screen.addEventListener('transitionend', () => {
+            if (screen.classList.contains('active')) {
+                // Trigger specific animations for each screen
+                setTimeout(() => {
+                    const experienceViews = screen.querySelectorAll('.experience-view');
+                    experienceViews.forEach(view => {
+                        if (view.classList.contains('active')) {
+                            triggerScreenSpecificAnimations(view);
+                        }
+                    });
+                }, 300);
+            }
+        });
+    });
 });
 
-// Accessibility enhancements
+function triggerScreenSpecificAnimations(view) {
+    // Animate workflow steps
+    const workflowSteps = view.querySelectorAll('.workflow-step, .timeline-step, .planning-phase');
+    workflowSteps.forEach((step, index) => {
+        setTimeout(() => {
+            step.style.animation = 'slideInLeft 0.6s ease-out forwards';
+        }, index * 200);
+    });
+    
+    // Animate metric comparisons
+    const metricBars = view.querySelectorAll('.metric-bar, .comparison-metric');
+    metricBars.forEach((bar, index) => {
+        setTimeout(() => {
+            animateProgressBar(bar);
+        }, index * 300);
+    });
+    
+    // Animate conversation messages
+    const messages = view.querySelectorAll('.message');
+    messages.forEach((message, index) => {
+        setTimeout(() => {
+            message.style.animation = 'fadeInUp 0.5s ease-out forwards';
+        }, index * 400);
+    });
+}
+
+// Enhanced Accessibility Features
 document.addEventListener('DOMContentLoaded', () => {
-    // Announce scene changes to screen readers
+    // Create live region for screen reader announcements
     const liveRegion = document.createElement('div');
     liveRegion.setAttribute('aria-live', 'polite');
     liveRegion.setAttribute('aria-atomic', 'true');
-    liveRegion.style.position = 'absolute';
-    liveRegion.style.left = '-10000px';
-    liveRegion.style.width = '1px';
-    liveRegion.style.height = '1px';
-    liveRegion.style.overflow = 'hidden';
+    liveRegion.className = 'sr-only';
+    liveRegion.style.cssText = `
+        position: absolute;
+        left: -10000px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+    `;
     document.body.appendChild(liveRegion);
+    
+    // Enhanced keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        // Add focus management for experience toggles
+        if (e.key === 'Tab') {
+            const focusableElements = document.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+            const currentFocus = document.activeElement;
+            const currentIndex = Array.from(focusableElements).indexOf(currentFocus);
+            
+            if (e.shiftKey && currentIndex === 0) {
+                e.preventDefault();
+                focusableElements[focusableElements.length - 1].focus();
+            } else if (!e.shiftKey && currentIndex === focusableElements.length - 1) {
+                e.preventDefault();
+                focusableElements[0].focus();
+            }
+        }
+        
+        // Space bar activation for custom buttons
+        if (e.key === ' ' && e.target.classList.contains('experience-btn')) {
+            e.preventDefault();
+            e.target.click();
+        }
+    });
     
     // Update live region on scene changes
     document.querySelectorAll('.scene-dot').forEach(dot => {
         dot.addEventListener('click', () => {
             const sceneNumber = dot.dataset.scene;
-            const sceneTitle = document.querySelector(`#scene-${sceneNumber} .scene-title h2`);
+            const sceneTitle = document.querySelector(`#scene-${sceneNumber} .scene-title h2, #screen${sceneNumber}-title`);
             if (sceneTitle) {
                 liveRegion.textContent = `Now viewing: ${sceneTitle.textContent}`;
             }
@@ -538,7 +644,419 @@ document.addEventListener('DOMContentLoaded', () => {
             liveRegion.textContent = `Now viewing: ${experienceName} experience`;
         });
     });
+    
+    // Add ARIA labels and descriptions
+    addAriaEnhancements();
+    
+    // Focus management for interactive elements
+    initFocusManagement();
+    
+    // High contrast mode detection
+    if (window.matchMedia('(prefers-contrast: high)').matches) {
+        document.body.classList.add('high-contrast');
+    }
 });
+
+function addAriaEnhancements() {
+    // Add ARIA labels to interactive elements
+    const experienceBtns = document.querySelectorAll('.experience-btn');
+    experienceBtns.forEach(btn => {
+        const experience = btn.dataset.experience;
+        btn.setAttribute('aria-label', `Switch to ${experience} experience view`);
+        btn.setAttribute('role', 'button');
+    });
+    
+    // Add ARIA descriptions to workflow steps
+    const workflowSteps = document.querySelectorAll('.workflow-step, .timeline-step');
+    workflowSteps.forEach((step, index) => {
+        step.setAttribute('role', 'listitem');
+        step.setAttribute('aria-label', `Workflow step ${index + 1}`);
+    });
+    
+    // Add ARIA labels to progress bars
+    const progressBars = document.querySelectorAll('.progress-bar, .stress-bar');
+    progressBars.forEach(bar => {
+        const label = bar.closest('.metric, .impact-metric')?.querySelector('.metric-label, .impact-label')?.textContent;
+        if (label) {
+            bar.setAttribute('role', 'progressbar');
+            bar.setAttribute('aria-label', label);
+            
+            const fill = bar.querySelector('.progress-fill, .stress-fill');
+            if (fill) {
+                const value = fill.style.width || '0%';
+                bar.setAttribute('aria-valuenow', parseInt(value));
+                bar.setAttribute('aria-valuemin', '0');
+                bar.setAttribute('aria-valuemax', '100');
+            }
+        }
+    });
+}
+
+function initFocusManagement() {
+    // Skip links for better navigation
+    const skipLink = document.createElement('a');
+    skipLink.href = '#main-content';
+    skipLink.textContent = 'Skip to main content';
+    skipLink.className = 'skip-link';
+    skipLink.style.cssText = `
+        position: absolute;
+        top: -40px;
+        left: 6px;
+        background: var(--vmware-blue);
+        color: white;
+        padding: 8px;
+        text-decoration: none;
+        z-index: 1000;
+        border-radius: 4px;
+        transition: top 0.3s;
+    `;
+    
+    skipLink.addEventListener('focus', () => {
+        skipLink.style.top = '6px';
+    });
+    
+    skipLink.addEventListener('blur', () => {
+        skipLink.style.top = '-40px';
+    });
+    
+    document.body.insertBefore(skipLink, document.body.firstChild);
+    
+    // Add main content landmark
+    const mainContent = document.querySelector('.pov-container, .screen-content');
+    if (mainContent && !mainContent.id) {
+        mainContent.id = 'main-content';
+        mainContent.setAttribute('role', 'main');
+    }
+}
+
+// Interactive Typing Simulation for VNLI Queries
+function initTypingSimulation() {
+    const typingElements = document.querySelectorAll('.typing-indicator, .user-query, .query-display');
+    
+    // Sample queries for different scenarios
+    const sampleQueries = {
+        health: [
+            "Show me VM health status for all servers with high CPU or memory usage",
+            "Which systems need attention right now?",
+            "Give me a performance overview of the production cluster"
+        ],
+        incident: [
+            "What's causing the high CPU usage in VM-PROD-WEB-03?",
+            "Analyze the root cause of the current performance alert",
+            "How do I fix this memory leak without downtime?"
+        ],
+        capacity: [
+            "I need to plan capacity for Q1 2024. Show me current utilization trends and predict what we'll need.",
+            "What hardware should we purchase for next quarter?",
+            "Analyze our growth patterns and recommend infrastructure scaling"
+        ],
+        compliance: [
+            "Generate a comprehensive SOX compliance report covering security configurations, access controls, patch management, and data encryption for the past 12 months.",
+            "Show me all compliance violations and remediation steps",
+            "Create an audit-ready security assessment report"
+        ],
+        summary: [
+            "Generate today's end-of-day status summary for night shift handoff including system health, ongoing issues, and recommended actions.",
+            "Create a handoff report with all critical information",
+            "Summarize today's activities and tomorrow's priorities"
+        ]
+    };
+    
+    function typeText(element, text, speed = 50, callback = null) {
+        if (!element) return;
+        
+        let index = 0;
+        element.textContent = '';
+        element.classList.add('typing-active');
+        
+        const typeInterval = setInterval(() => {
+            if (index < text.length) {
+                element.textContent += text.charAt(index);
+                index++;
+            } else {
+                clearInterval(typeInterval);
+                element.classList.remove('typing-active');
+                element.classList.add('typing-complete');
+                if (callback) callback();
+            }
+        }, speed);
+        
+        return typeInterval;
+    }
+    
+    function simulateVNLITyping() {
+        // Find active screen and determine query type
+        const activeScreen = document.querySelector('.screen.active, .experience-view.vnli-view.active');
+        if (!activeScreen) return;
+        
+        let queryType = 'health'; // default
+        if (activeScreen.querySelector('#screen2-title, .incident-timeline')) queryType = 'incident';
+        else if (activeScreen.querySelector('#screen3-title, .planning-process')) queryType = 'capacity';
+        else if (activeScreen.querySelector('#screen4-title, .compliance-process')) queryType = 'compliance';
+        else if (activeScreen.querySelector('#screen5-title, .eod-process')) queryType = 'summary';
+        
+        const queries = sampleQueries[queryType] || sampleQueries.health;
+        const randomQuery = queries[Math.floor(Math.random() * queries.length)];
+        
+        // Find typing elements in the active view
+        const userMessages = activeScreen.querySelectorAll('.vnli-view .user-message .message-content, .vnli-view .user-query');
+        
+        userMessages.forEach((element, index) => {
+            if (element.textContent.trim() === '' || element.classList.contains('demo-query')) {
+                setTimeout(() => {
+                    typeText(element, randomQuery, 30, () => {
+                        // Trigger AI response after user query
+                        setTimeout(() => {
+                            triggerAIResponse(element);
+                        }, 500);
+                    });
+                }, index * 2000);
+            }
+        });
+    }
+    
+    function triggerAIResponse(userElement) {
+        const aiMessage = userElement.closest('.conversation-flow, .chat-messages')?.querySelector('.ai-message');
+        if (aiMessage) {
+            aiMessage.style.animation = 'fadeInUp 0.8s ease-out forwards';
+            
+            // Animate typing indicator
+            const typingIndicator = aiMessage.querySelector('.typing-indicator');
+            if (typingIndicator) {
+                typeText(typingIndicator, 'VNLI is analyzing...', 100, () => {
+                    setTimeout(() => {
+                        typingIndicator.style.display = 'none';
+                        const analysisResult = aiMessage.querySelector('.analysis-result, .analysis-complete, .message-content > *:not(.typing-indicator)');
+                        if (analysisResult) {
+                            analysisResult.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                        }
+                    }, 1000);
+                });
+            }
+        }
+    }
+    
+    // Auto-trigger typing simulation when VNLI experience is selected
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('vnli-btn') || e.target.closest('.vnli-btn')) {
+            setTimeout(simulateVNLITyping, 800);
+        }
+    });
+    
+    // Trigger on page load for demo
+    setTimeout(() => {
+        const vnliView = document.querySelector('.vnli-view.active');
+        if (vnliView) {
+            simulateVNLITyping();
+        }
+    }, 2000);
+}
+
+// Interactive Elements and Animations
+function initInteractiveElements() {
+    // Interactive query examples
+    const queryExamples = document.querySelectorAll('.query-example, .example-query');
+    queryExamples.forEach(example => {
+        example.addEventListener('click', () => {
+            const queryText = example.textContent.trim();
+            typeQueryIntoInterface(queryText);
+        });
+    });
+    
+    // Interactive action buttons
+    const actionButtons = document.querySelectorAll('.action-btn, .remediation-btn');
+    actionButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            animateButtonAction(button);
+        });
+    });
+    
+    // Interactive metric cards
+    const metricCards = document.querySelectorAll('.metric-card, .impact-metric');
+    metricCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            animateMetricCard(card);
+        });
+    });
+    
+    // Progress bar animations
+    const progressBars = document.querySelectorAll('.progress-bar, .stress-bar');
+    progressBars.forEach(bar => {
+        animateProgressBar(bar);
+    });
+}
+
+function typeQueryIntoInterface(query) {
+    const searchInput = document.querySelector('.search-input, .query-input');
+    if (searchInput) {
+        searchInput.focus();
+        typeText(searchInput, query, 50, () => {
+            // Simulate enter key press
+            const enterEvent = new KeyboardEvent('keydown', { key: 'Enter' });
+            searchInput.dispatchEvent(enterEvent);
+        });
+    }
+}
+
+function animateButtonAction(button) {
+    button.classList.add('action-triggered');
+    button.style.transform = 'scale(0.95)';
+    
+    setTimeout(() => {
+        button.style.transform = 'scale(1)';
+        button.classList.remove('action-triggered');
+        
+        // Show success feedback
+        showActionFeedback(button);
+    }, 150);
+}
+
+function showActionFeedback(button) {
+    const feedback = document.createElement('div');
+    feedback.className = 'action-feedback';
+    feedback.textContent = '✓ Action Completed';
+    feedback.style.cssText = `
+        position: absolute;
+        background: var(--success-green);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+        z-index: 1000;
+        animation: fadeInOut 2s ease-out forwards;
+        pointer-events: none;
+    `;
+    
+    const rect = button.getBoundingClientRect();
+    feedback.style.left = rect.left + 'px';
+    feedback.style.top = (rect.top - 40) + 'px';
+    
+    document.body.appendChild(feedback);
+    
+    setTimeout(() => {
+        feedback.remove();
+    }, 2000);
+}
+
+function animateMetricCard(card) {
+    card.style.transform = 'translateY(-4px) scale(1.02)';
+    card.style.boxShadow = 'var(--glass-shadow-strong)';
+    
+    setTimeout(() => {
+        card.style.transform = 'translateY(0) scale(1)';
+        card.style.boxShadow = 'var(--glass-shadow)';
+    }, 200);
+}
+
+function animateProgressBar(bar) {
+    const fill = bar.querySelector('.progress-fill, .stress-fill, .bar-fill');
+    if (fill) {
+        const targetWidth = fill.style.width || fill.getAttribute('data-width') || '0%';
+        fill.style.width = '0%';
+        fill.style.transition = 'width 1.5s ease-out';
+        
+        setTimeout(() => {
+            fill.style.width = targetWidth;
+        }, 100);
+    }
+}
+
+// Real-time Cost/Time Savings Calculator
+function initSavingsCalculator() {
+    const calculatorData = {
+        dailyHealthCheck: { traditional: 30, vnli: 2, frequency: 250 },
+        incidentResponse: { traditional: 255, vnli: 15, frequency: 25 },
+        capacityPlanning: { traditional: 160, vnli: 1, frequency: 4 },
+        complianceReporting: { traditional: 32, vnli: 0.17, frequency: 12 },
+        eodSummary: { traditional: 45, vnli: 5, frequency: 250 }
+    };
+    
+    const hourlyRate = 75; // Administrator hourly rate
+    
+    function calculateSavings() {
+        let totalTraditionalHours = 0;
+        let totalVnliHours = 0;
+        
+        Object.values(calculatorData).forEach(task => {
+            totalTraditionalHours += (task.traditional / 60) * task.frequency;
+            totalVnliHours += (task.vnli / 60) * task.frequency;
+        });
+        
+        const hoursSaved = totalTraditionalHours - totalVnliHours;
+        const costSavings = hoursSaved * hourlyRate;
+        const percentageSaved = ((hoursSaved / totalTraditionalHours) * 100).toFixed(1);
+        
+        return {
+            hoursSaved: Math.round(hoursSaved),
+            costSavings: Math.round(costSavings),
+            percentageSaved: percentageSaved,
+            traditionalHours: Math.round(totalTraditionalHours),
+            vnliHours: Math.round(totalVnliHours)
+        };
+    }
+    
+    function updateSavingsDisplay() {
+        const savings = calculateSavings();
+        
+        // Update savings displays throughout the demo
+        const savingsElements = document.querySelectorAll('.savings-value, .annual-savings');
+        savingsElements.forEach(element => {
+            if (element.textContent.includes('$')) {
+                animateNumber(element, savings.costSavings, '$', ',');
+            } else if (element.textContent.includes('hours')) {
+                animateNumber(element, savings.hoursSaved, '', ' hours');
+            } else if (element.textContent.includes('%')) {
+                animateNumber(element, savings.percentageSaved, '', '%');
+            }
+        });
+    }
+    
+    function animateNumber(element, targetValue, prefix = '', suffix = '') {
+        const duration = 2000;
+        const steps = 60;
+        const stepValue = targetValue / steps;
+        const stepTime = duration / steps;
+        
+        let currentValue = 0;
+        const timer = setInterval(() => {
+            currentValue += stepValue;
+            if (currentValue >= targetValue) {
+                currentValue = targetValue;
+                clearInterval(timer);
+            }
+            
+            let displayValue = Math.round(currentValue);
+            if (prefix === '$' && displayValue >= 1000) {
+                displayValue = displayValue.toLocaleString();
+            }
+            
+            element.textContent = prefix + displayValue + suffix;
+        }, stepTime);
+    }
+    
+    // Initialize savings display
+    setTimeout(updateSavingsDisplay, 1000);
+}
+
+// Enhanced Analytics Tracking
+function trackDetailedInteraction(action, category, value = null) {
+    const timestamp = new Date().toISOString();
+    const sessionData = {
+        action: action,
+        category: category,
+        value: value,
+        timestamp: timestamp,
+        userAgent: navigator.userAgent,
+        viewport: `${window.innerWidth}x${window.innerHeight}`
+    };
+    
+    console.log('Detailed Analytics:', sessionData);
+    
+    // In production, send to analytics service
+    // analytics.track(action, sessionData);
+}
 
 // Export functions for potential external use
 window.VNLIPOVExperience = {
@@ -553,5 +1071,11 @@ window.VNLIPOVExperience = {
     toggleROI: () => {
         document.getElementById('roi-toggle').click();
     },
-    trackInteraction: trackInteraction
+    trackInteraction: trackInteraction,
+    startTypingDemo: () => {
+        initTypingSimulation();
+    },
+    calculateSavings: () => {
+        initSavingsCalculator();
+    }
 };

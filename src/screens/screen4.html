@@ -1,4 +1,4 @@
-<!-- Screen 4: Natural Language Query in Action -->
+<!-- Screen 4: Compliance Reporting Scenario -->
 <section class="screen screen-4" data-screen="4" role="region" aria-labelledby="screen4-title">
     <div class="screen-background">
         <div class="processing-background"></div>
@@ -7,128 +7,382 @@
     
     <div class="screen-content">
         <header class="screen-header">
-            <h1 id="screen4-title" class="screen-title">Query in Action</h1>
-            <h2 class="screen-subtitle">Real-time natural language processing</h2>
+            <h1 id="screen4-title" class="screen-title">Security & Compliance Reporting</h1>
+            <h2 class="screen-subtitle">Annual SOX Audit Preparation</h2>
+            
+            <!-- Scenario Context -->
+            <div class="scenario-context glassmorphic-card">
+                <span class="context-icon">🛡️</span>
+                <span class="context-text">Audit team needs comprehensive security compliance report by end of week</span>
+            </div>
+            
+            <!-- Experience Toggle -->
+            <div class="experience-toggle">
+                <button class="experience-btn traditional-btn active" data-experience="traditional">
+                    <span class="btn-icon">📄</span>
+                    Manual Reports
+                </button>
+                <button class="experience-btn vnli-btn" data-experience="vnli">
+                    <span class="btn-icon">🤖</span>
+                    VNLI Compliance
+                </button>
+            </div>
         </header>
 
-        <div class="query-demo-container">
-            <!-- Query input -->
-            <div class="query-input-section glassmorphic-card">
-                <div class="query-header">
-                    <h3>Natural Language Query</h3>
-                    <div class="time-counter">
-                        <span class="time-icon">⏱️</span>
-                        <span class="time-text">3 seconds elapsed</span>
+        <!-- Traditional Compliance Process -->
+        <div class="experience-view traditional-view active">
+            <div class="compliance-process">
+                <div class="process-header">
+                    <h3>Traditional Compliance Reporting Process</h3>
+                    <div class="process-duration pain">Duration: 3-4 days</div>
+                </div>
+                
+                <div class="compliance-workflow">
+                    <div class="workflow-day glassmorphic-card">
+                        <div class="day-header">
+                            <h4>Day 1-2: Data Gathering</h4>
+                            <div class="day-stress pain">High Stress</div>
+                        </div>
+                        <div class="day-tasks">
+                            <div class="task-category">
+                                <h5>Security Configuration Audit</h5>
+                                <div class="task-list">
+                                    <div class="task-item">
+                                        <span class="task-icon">🔒</span>
+                                        <span>Export user access permissions from vCenter</span>
+                                        <span class="task-duration">3 hours</span>
+                                    </div>
+                                    <div class="task-item">
+                                        <span class="task-icon">🛡️</span>
+                                        <span>Document firewall rules and network segmentation</span>
+                                        <span class="task-duration">4 hours</span>
+                                    </div>
+                                    <div class="task-item">
+                                        <span class="task-icon">📝</span>
+                                        <span>Compile encryption status for all datastores</span>
+                                        <span class="task-duration">2 hours</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="task-category">
+                                <h5>Patch Management Review</h5>
+                                <div class="task-list">
+                                    <div class="task-item">
+                                        <span class="task-icon">🔄</span>
+                                        <span>Check patch levels across all ESXi hosts</span>
+                                        <span class="task-duration">2 hours</span>
+                                    </div>
+                                    <div class="task-item">
+                                        <span class="task-icon">📊</span>
+                                        <span>Document patch installation timeline</span>
+                                        <span class="task-duration">1 hour</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-day glassmorphic-card">
+                        <div class="day-header">
+                            <h4>Day 3: Analysis & Formatting</h4>
+                            <div class="day-stress pain">Very High Stress</div>
+                        </div>
+                        <div class="day-challenges">
+                            <div class="challenge-item">
+                                <span class="challenge-icon">📋</span>
+                                <span>Manual correlation of data from multiple sources</span>
+                            </div>
+                            <div class="challenge-item">
+                                <span class="challenge-icon">📊</span>
+                                <span>Create charts and visualizations in Excel</span>
+                            </div>
+                            <div class="challenge-item">
+                                <span class="challenge-icon">⚠️</span>
+                                <span>Risk of human error in data interpretation</span>
+                            </div>
+                            <div class="challenge-item">
+                                <span class="challenge-icon">😅</span>
+                                <span>Working late to meet audit deadline</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="workflow-day glassmorphic-card">
+                        <div class="day-header">
+                            <h4>Day 4: Review & Submission</h4>
+                            <div class="day-stress pain">Extreme Stress</div>
+                        </div>
+                        <div class="day-issues">
+                            <div class="issue-item pain">
+                                <span class="issue-icon">🐛</span>
+                                <span>Last-minute data discrepancies found</span>
+                            </div>
+                            <div class="issue-item pain">
+                                <span class="issue-icon">🔁</span>
+                                <span>Need to regenerate several sections</span>
+                            </div>
+                            <div class="issue-item pain">
+                                <span class="issue-icon">😰</span>
+                                <span>Uncertainty about data accuracy</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="query-display">
-                    <div class="query-text">
-                        "Show me all VMs consuming more than 80% CPU in production cluster over last 4 hours"
+                <div class="traditional-impact pain">
+                    <h4>Impact Summary:</h4>
+                    <div class="impact-grid">
+                        <div class="impact-metric">
+                            <span class="metric-label">Total Hours:</span>
+                            <span class="metric-value">32 hours</span>
+                        </div>
+                        <div class="impact-metric">
+                            <span class="metric-label">Stress Level:</span>
+                            <span class="metric-value">Very High</span>
+                        </div>
+                        <div class="impact-metric">
+                            <span class="metric-label">Error Risk:</span>
+                            <span class="metric-value">High</span>
+                        </div>
+                        <div class="impact-metric">
+                            <span class="metric-label">Cost:</span>
+                            <span class="metric-value">$2,400</span>
+                        </div>
                     </div>
-                    <div class="typing-cursor"></div>
                 </div>
             </div>
-
-            <!-- AI processing visualization -->
-            <div class="ai-processing glassmorphic-card">
-                <h3>AI Processing Pipeline</h3>
-                <div class="processing-steps">
-                    <div class="processing-step active" data-step="1">
-                        <div class="step-indicator">
-                            <div class="step-circle"></div>
-                        </div>
-                        <div class="step-content">
-                            <h4>Understanding Intent</h4>
-                            <p>Analyzing natural language query</p>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 100%"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="processing-step active" data-step="2">
-                        <div class="step-indicator">
-                            <div class="step-circle"></div>
-                        </div>
-                        <div class="step-content">
-                            <h4>Translating to API</h4>
-                            <p>Converting to VMware API calls</p>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 75%"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="processing-step" data-step="3">
-                        <div class="step-indicator">
-                            <div class="step-circle"></div>
-                        </div>
-                        <div class="step-content">
-                            <h4>Validating Safety</h4>
-                            <p>Ensuring query security and permissions</p>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 0%"></div>
-                            </div>
-                        </div>
-                    </div>
+        </div>
+        
+        <!-- VNLI Compliance Process -->
+        <div class="experience-view vnli-view">
+            <div class="compliance-process">
+                <div class="process-header">
+                    <h3>VNLI-Powered Compliance Reporting</h3>
+                    <div class="process-duration success">Duration: 10 minutes</div>
                 </div>
-            </div>
-
-            <!-- Real-time feedback -->
-            <div class="feedback-section">
-                <div class="feedback-item glassmorphic-card">
-                    <div class="feedback-icon">🧠</div>
-                    <div class="feedback-content">
-                        <h4>Intent Recognition</h4>
-                        <p>Query classified as: Performance Monitoring</p>
+                
+                <div class="vnli-compliance-demo">
+                    <div class="compliance-conversation glassmorphic-card">
+                        <div class="conversation-header">
+                            <h4>Automated Compliance Report Generation</h4>
+                            <div class="audit-context">
+                                <span class="context-tag">SOX Audit</span>
+                                <span class="context-tag">Security Review</span>
+                                <span class="context-tag">Access Control</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compliance-chat">
+                            <div class="message user-message">
+                                <div class="message-content">
+                                    "Generate a comprehensive SOX compliance report covering security configurations, access controls, patch management, and data encryption for the past 12 months."
+                                </div>
+                                <div class="message-time">2:15 PM</div>
+                            </div>
+                            
+                            <div class="message ai-message">
+                                <div class="message-content">
+                                    <h5>Compliance Report Generated Successfully</h5>
+                                    <div class="report-sections">
+                                        <div class="report-section">
+                                            <div class="section-header">
+                                                <span class="section-icon">🔒</span>
+                                                <span class="section-title">Access Control & Authentication</span>
+                                                <span class="compliance-status compliant">✅ Compliant</span>
+                                            </div>
+                                            <div class="section-summary">
+                                                <div class="summary-item">Multi-factor authentication: 100% enabled</div>
+                                                <div class="summary-item">Role-based access control: Properly configured</div>
+                                                <div class="summary-item">Privileged access review: Monthly cadence maintained</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="report-section">
+                                            <div class="section-header">
+                                                <span class="section-icon">🛡️</span>
+                                                <span class="section-title">Network Security & Segmentation</span>
+                                                <span class="compliance-status compliant">✅ Compliant</span>
+                                            </div>
+                                            <div class="section-summary">
+                                                <div class="summary-item">Firewall rules: Documented and reviewed quarterly</div>
+                                                <div class="summary-item">Network segmentation: Production isolated</div>
+                                                <div class="summary-item">Traffic monitoring: Continuous logging enabled</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="report-section">
+                                            <div class="section-header">
+                                                <span class="section-icon">🔄</span>
+                                                <span class="section-title">Patch Management</span>
+                                                <span class="compliance-status warning">⚠️ Minor Issues</span>
+                                            </div>
+                                            <div class="section-summary">
+                                                <div class="summary-item">Critical patches: 98% current (2 hosts pending)</div>
+                                                <div class="summary-item">Patch testing process: Documented and followed</div>
+                                                <div class="summary-item">Emergency patch procedure: In place</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="report-section">
+                                            <div class="section-header">
+                                                <span class="section-icon">🔐</span>
+                                                <span class="section-title">Data Encryption</span>
+                                                <span class="compliance-status compliant">✅ Compliant</span>
+                                            </div>
+                                            <div class="section-summary">
+                                                <div class="summary-item">Data at rest: 100% encrypted</div>
+                                                <div class="summary-item">Data in transit: TLS 1.3 enforced</div>
+                                                <div class="summary-item">Key management: HSM-backed, rotated quarterly</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="report-actions">
+                                        <button class="action-btn primary">Download Full Report</button>
+                                        <button class="action-btn secondary">Schedule Remediation</button>
+                                        <button class="action-btn secondary">Email to Auditors</button>
+                                    </div>
+                                </div>
+                                <div class="message-time">2:15:45 PM</div>
+                            </div>
+                            
+                            <div class="message user-message">
+                                <div class="message-content">
+                                    "What are the specific remediation steps for the patch management issues?"
+                                </div>
+                                <div class="message-time">2:16 PM</div>
+                            </div>
+                            
+                            <div class="message ai-message">
+                                <div class="message-content">
+                                    <h5>Patch Management Remediation Plan</h5>
+                                    <div class="remediation-plan">
+                                        <div class="remediation-item">
+                                            <div class="item-header">
+                                                <span class="item-priority high">High Priority</span>
+                                                <span class="item-timeline">This Week</span>
+                                            </div>
+                                            <div class="item-content">
+                                                <h6>ESXi-PROD-07 & ESXi-PROD-12</h6>
+                                                <p>Missing critical security patches (CVE-2023-20867, CVE-2023-20868)</p>
+                                                <div class="remediation-steps">
+                                                    <div class="step">1. Schedule maintenance window</div>
+                                                    <div class="step">2. vMotion VMs to other hosts</div>
+                                                    <div class="step">3. Apply patches during maintenance</div>
+                                                    <div class="step">4. Verify and document completion</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="auto-actions">
+                                        <button class="action-btn auto">Auto-Schedule Maintenance</button>
+                                        <button class="action-btn manual">Manual Review</button>
+                                    </div>
+                                </div>
+                                <div class="message-time">2:16:15 PM</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="feedback-item glassmorphic-card">
-                    <div class="feedback-icon">🔍</div>
-                    <div class="feedback-content">
-                        <h4>Parameter Extraction</h4>
-                        <p>CPU threshold: 80%, Time range: 4 hours, Scope: Production</p>
-                    </div>
-                </div>
-                
-                <div class="feedback-item glassmorphic-card">
-                    <div class="feedback-icon">⚡</div>
-                    <div class="feedback-content">
-                        <h4>API Translation</h4>
-                        <p>Generated 3 optimized VMware API calls</p>
+                <div class="vnli-impact success">
+                    <h4>VNLI Impact:</h4>
+                    <div class="impact-grid">
+                        <div class="impact-metric">
+                            <span class="metric-label">Total Time:</span>
+                            <span class="metric-value">10 minutes</span>
+                        </div>
+                        <div class="impact-metric">
+                            <span class="metric-label">Stress Level:</span>
+                            <span class="metric-value">Minimal</span>
+                        </div>
+                        <div class="impact-metric">
+                            <span class="metric-label">Accuracy:</span>
+                            <span class="metric-value">99.9%</span>
+                        </div>
+                        <div class="impact-metric">
+                            <span class="metric-label">Cost:</span>
+                            <span class="metric-value">$12.50</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Performance metrics -->
-        <div class="performance-metrics glassmorphic-card">
-            <h3>Processing Performance</h3>
-            <div class="metrics-grid">
-                <div class="metric">
-                    <span class="metric-value">0.8s</span>
-                    <span class="metric-label">Intent Analysis</span>
+        <!-- Compliance Comparison Summary -->
+        <div class="compliance-comparison glassmorphic-card">
+            <h3>Compliance Reporting Transformation</h3>
+            <div class="comparison-overview">
+                <div class="comparison-category">
+                    <h4>Time Investment</h4>
+                    <div class="time-comparison">
+                        <div class="time-traditional">
+                            <span class="time-label">Traditional:</span>
+                            <span class="time-bar" style="width: 100%"></span>
+                            <span class="time-value">32 hours</span>
+                        </div>
+                        <div class="time-vnli">
+                            <span class="time-label">VNLI:</span>
+                            <span class="time-bar success" style="width: 0.5%"></span>
+                            <span class="time-value">10 minutes</span>
+                        </div>
+                    </div>
+                    <div class="improvement-metric">🚀 99.5% time reduction</div>
                 </div>
-                <div class="metric">
-                    <span class="metric-value">1.2s</span>
-                    <span class="metric-label">API Translation</span>
+                
+                <div class="comparison-category">
+                    <h4>Audit Readiness</h4>
+                    <div class="readiness-metrics">
+                        <div class="metric-item">
+                            <span class="metric-label">Report Accuracy:</span>
+                            <span class="metric-traditional">85%</span>
+                            <span class="metric-arrow">→</span>
+                            <span class="metric-vnli success">99.9%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Data Freshness:</span>
+                            <span class="metric-traditional">1-2 weeks old</span>
+                            <span class="metric-arrow">→</span>
+                            <span class="metric-vnli success">Real-time</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Coverage:</span>
+                            <span class="metric-traditional">Manual selection</span>
+                            <span class="metric-arrow">→</span>
+                            <span class="metric-vnli success">100% automatic</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="metric">
-                    <span class="metric-value">1.0s</span>
-                    <span class="metric-label">Safety Validation</span>
-                </div>
-                <div class="metric total">
-                    <span class="metric-value">3.0s</span>
-                    <span class="metric-label">Total Processing</span>
+            </div>
+            
+            <div class="compliance-benefits">
+                <h4>Key Compliance Benefits with VNLI:</h4>
+                <div class="benefit-grid">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">✅</span>
+                        <span>Continuous compliance monitoring</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">📊</span>
+                        <span>Real-time risk assessment</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🔄</span>
+                        <span>Automated remediation workflows</span>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">📝</span>
+                        <span>Audit trail generation</span>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Navigation hint -->
         <div class="navigation-hint">
-            <p>See the instant results →</p>
+            <p>Continue to see end-of-day summary workflow →</p>
         </div>
     </div>
 </section>

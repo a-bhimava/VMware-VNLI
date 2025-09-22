@@ -38,7 +38,7 @@ vnli-demo/
    git add .
    git commit -m "Initial commit: VNLI executive demo"
    git branch -M main
-   git remote add origin https://github.com/yourusername/vnli-demo.git
+   git remote add origin https://github.com/a-bhimava/vnli-demo.git
    git push -u origin main
    ```
 
@@ -50,7 +50,7 @@ vnli-demo/
    - Click "Save"
 
 3. **Access Your Site**
-   - URL: `https://a-bhimava.github.io/VMware-VNLI/`
+   - URL: https://a-bhimava.github.io/VMware-VNLI/
    - Custom domain option available in Pages settings
 
 ### Advanced Configuration
@@ -306,10 +306,6 @@ const userPersona = "Sarah Chen"; // Customize for audience
 - Use consistent naming conventions
 - Include alt text for accessibility
 
-## 📄 License
-
-This project is proprietary to VMware/Broadcom. All rights reserved.
-
 ## 🆘 Support
 
 ### Technical Issues
@@ -325,7 +321,3 @@ This project is proprietary to VMware/Broadcom. All rights reserved.
 ---
 
 **Transform your VMware investment. Schedule your executive demo today.**
-
-🔗 **Live Demo**: https://yourusername.github.io/vnli-demo/  
-📧 **Contact**: vnli-demo@vmware.com  
-📱 **Mobile Optimized**: Full responsive design# VMware-VNLI

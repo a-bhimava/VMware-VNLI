@@ -1,4 +1,4 @@
-<!-- Screen 3: VNLI Interface - The Solution -->
+<!-- Screen 3: Capacity Planning Scenario -->
 <section class="screen screen-3" data-screen="3" role="region" aria-labelledby="screen3-title">
     <div class="screen-background">
         <div class="solution-background"></div>
@@ -11,106 +11,335 @@
     
     <div class="screen-content">
         <header class="screen-header">
-            <div class="vmware-logo">
-                <img src="src/icons/vmware-logo.svg" alt="VMware Logo" class="logo-image">
-                <span class="vnli-branding">VNLI</span>
+            <h1 id="screen3-title" class="screen-title">Quarterly Capacity Planning</h1>
+            <h2 class="screen-subtitle">Strategic Infrastructure Assessment</h2>
+            
+            <!-- Scenario Context -->
+            <div class="scenario-context glassmorphic-card">
+                <span class="context-icon">📈</span>
+                <span class="context-text">Q4 Planning: Need to assess current capacity and plan for 2024 growth</span>
             </div>
-            <h1 id="screen3-title" class="screen-title">The VNLI Solution</h1>
-            <h2 class="screen-subtitle">Natural Language Interface for VMware Management</h2>
+            
+            <!-- Experience Toggle -->
+            <div class="experience-toggle">
+                <button class="experience-btn traditional-btn active" data-experience="traditional">
+                    <span class="btn-icon">📄</span>
+                    Traditional Process
+                </button>
+                <button class="experience-btn vnli-btn" data-experience="vnli">
+                    <span class="btn-icon">🤖</span>
+                    VNLI Intelligence
+                </button>
+            </div>
         </header>
 
-        <div class="vnli-interface-container">
-            <!-- Main VNLI interface -->
-            <div class="vnli-interface glassmorphic-card">
-                <div class="interface-header">
-                    <h3>Ask about your infrastructure in plain English</h3>
+        <!-- Traditional Capacity Planning Process -->
+        <div class="experience-view traditional-view active">
+            <div class="planning-process">
+                <div class="process-header">
+                    <h3>Traditional Capacity Planning Process</h3>
+                    <div class="process-duration pain">Duration: 2-3 weeks</div>
                 </div>
                 
-                <div class="search-container">
-                    <div class="search-bar glassmorphic-card">
-                        <div class="search-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                <div class="planning-phases">
+                    <div class="planning-phase glassmorphic-card">
+                        <div class="phase-header">
+                            <div class="phase-number">1</div>
+                            <h4>Data Collection</h4>
+                            <div class="phase-duration">5-7 days</div>
                         </div>
-                        <input type="text" 
-                               class="search-input" 
-                               placeholder="Ask about your infrastructure in plain English..."
-                               aria-label="Natural language query input">
-                        <button class="search-button" aria-label="Submit query">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                                <path d="M5 12H19M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
+                        <div class="phase-content">
+                            <div class="manual-tasks">
+                                <div class="task-item">
+                                    <span class="task-icon">📊</span>
+                                    <span>Export performance data from vCenter</span>
+                                    <span class="task-time">2 days</span>
+                                </div>
+                                <div class="task-item">
+                                    <span class="task-icon">💳</span>
+                                    <span>Gather licensing and compliance reports</span>
+                                    <span class="task-time">1 day</span>
+                                </div>
+                                <div class="task-item">
+                                    <span class="task-icon">🔍</span>
+                                    <span>Manual inventory of hardware assets</span>
+                                    <span class="task-time">2 days</span>
+                                </div>
+                                <div class="task-item">
+                                    <span class="task-icon">📄</span>
+                                    <span>Coordinate with multiple teams for data</span>
+                                    <span class="task-time">Ongoing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="planning-phase glassmorphic-card">
+                        <div class="phase-header">
+                            <div class="phase-number">2</div>
+                            <h4>Analysis & Modeling</h4>
+                            <div class="phase-duration">7-10 days</div>
+                        </div>
+                        <div class="phase-content">
+                            <div class="analysis-complexity">
+                                <div class="complexity-item">
+                                    <span class="complexity-icon">📊</span>
+                                    <span>Create Excel models for growth projection</span>
+                                </div>
+                                <div class="complexity-item">
+                                    <span class="complexity-icon">🧩</span>
+                                    <span>Manual correlation across systems</span>
+                                </div>
+                                <div class="complexity-item">
+                                    <span class="complexity-icon">📈</span>
+                                    <span>Seasonal usage pattern analysis</span>
+                                </div>
+                                <div class="complexity-item">
+                                    <span class="complexity-icon">👥</span>
+                                    <span>Multiple stakeholder reviews</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="planning-phase glassmorphic-card">
+                        <div class="phase-header">
+                            <div class="phase-number">3</div>
+                            <h4>Recommendations</h4>
+                            <div class="phase-duration">3-5 days</div>
+                        </div>
+                        <div class="phase-content">
+                            <div class="recommendation-challenges">
+                                <div class="challenge-item pain">
+                                    <span class="challenge-icon">⚠️</span>
+                                    <span>Static analysis - may be outdated by completion</span>
+                                </div>
+                                <div class="challenge-item pain">
+                                    <span class="challenge-icon">🙅</span>
+                                    <span>Conservative estimates due to uncertainty</span>
+                                </div>
+                                <div class="challenge-item pain">
+                                    <span class="challenge-icon">📄</span>
+                                    <span>Extensive documentation and approval process</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Example queries -->
-                <div class="example-queries">
-                    <h4>Try asking:</h4>
-                    <div class="query-examples">
-                        <div class="query-example glassmorphic-card">
-                            <span class="query-text">"Show me VMs using too much CPU"</span>
+                
+                <div class="traditional-outcome pain">
+                    <h4>Typical Outcome:</h4>
+                    <div class="outcome-metrics">
+                        <div class="outcome-metric">
+                            <span class="metric-label">Total Time:</span>
+                            <span class="metric-value">120-160 hours</span>
                         </div>
-                        <div class="query-example glassmorphic-card">
-                            <span class="query-text">"Which hosts need maintenance?"</span>
+                        <div class="outcome-metric">
+                            <span class="metric-label">Resource Cost:</span>
+                            <span class="metric-value">$15,000-20,000</span>
                         </div>
-                        <div class="query-example glassmorphic-card">
-                            <span class="query-text">"Find storage bottlenecks in production"</span>
+                        <div class="outcome-metric">
+                            <span class="metric-label">Accuracy:</span>
+                            <span class="metric-value">65-75%</span>
+                        </div>
+                        <div class="outcome-metric">
+                            <span class="metric-label">Data Freshness:</span>
+                            <span class="metric-value">2-3 weeks old</span>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Benefits showcase -->
-            <div class="benefits-showcase">
-                <div class="benefit-item glassmorphic-card">
-                    <div class="benefit-icon">💬</div>
-                    <h4>Natural Language</h4>
-                    <p>Ask questions in plain English, no syntax to learn</p>
+        </div>
+        
+        <!-- VNLI Capacity Planning Process -->
+        <div class="experience-view vnli-view">
+            <div class="planning-process">
+                <div class="process-header">
+                    <h3>VNLI-Powered Capacity Planning</h3>
+                    <div class="process-duration success">Duration: 1 hour</div>
                 </div>
                 
-                <div class="benefit-item glassmorphic-card">
-                    <div class="benefit-icon">⚡</div>
-                    <h4>Instant Results</h4>
-                    <p>Get answers in seconds, not minutes</p>
+                <div class="vnli-conversation">
+                    <div class="conversation-container glassmorphic-card">
+                        <div class="conversation-header">
+                            <h4>Natural Language Planning Session</h4>
+                            <div class="session-time">Started: 10:00 AM</div>
+                        </div>
+                        
+                        <div class="conversation-flow">
+                            <div class="message user-message">
+                                <div class="message-content">
+                                    "I need to plan capacity for Q1 2024. Show me current utilization trends and predict what we'll need."
+                                </div>
+                                <div class="message-time">10:00 AM</div>
+                            </div>
+                            
+                            <div class="message ai-message">
+                                <div class="message-content">
+                                    <h5>Comprehensive Capacity Analysis Ready</h5>
+                                    <div class="analysis-summary">
+                                        <div class="summary-card">
+                                            <h6>Current Utilization (Q3 2023)</h6>
+                                            <div class="utilization-metrics">
+                                                <div class="metric">CPU: 68% avg, 85% peak</div>
+                                                <div class="metric">Memory: 72% avg, 89% peak</div>
+                                                <div class="metric">Storage: 78% avg, 92% peak</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="summary-card">
+                                            <h6>Growth Trend Analysis</h6>
+                                            <div class="trend-metrics">
+                                                <div class="metric">VM Growth: +15% quarterly</div>
+                                                <div class="metric">Data Growth: +22% quarterly</div>
+                                                <div class="metric">User Growth: +8% quarterly</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="action-btn">View Detailed Report</button>
+                                </div>
+                                <div class="message-time">10:00:45 AM</div>
+                            </div>
+                            
+                            <div class="message user-message">
+                                <div class="message-content">
+                                    "What specific hardware do we need to purchase for Q1 2024 to maintain performance?"
+                                </div>
+                                <div class="message-time">10:02 AM</div>
+                            </div>
+                            
+                            <div class="message ai-message">
+                                <div class="message-content">
+                                    <h5>Q1 2024 Hardware Recommendations</h5>
+                                    <div class="hardware-recommendations">
+                                        <div class="hardware-item">
+                                            <span class="hardware-icon">💻</span>
+                                            <div class="hardware-details">
+                                                <div class="hardware-name">Additional Compute Hosts</div>
+                                                <div class="hardware-spec">3x Dell PowerEdge R750 (or equivalent)</div>
+                                                <div class="hardware-cost">Est. Cost: $75,000</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="hardware-item">
+                                            <span class="hardware-icon">💾</span>
+                                            <div class="hardware-details">
+                                                <div class="hardware-name">Storage Expansion</div>
+                                                <div class="hardware-spec">50TB NVMe SSD Array</div>
+                                                <div class="hardware-cost">Est. Cost: $45,000</div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="hardware-item">
+                                            <span class="hardware-icon">🔗</span>
+                                            <div class="hardware-details">
+                                                <div class="hardware-name">Network Upgrade</div>
+                                                <div class="hardware-spec">25GbE Switch Module</div>
+                                                <div class="hardware-cost">Est. Cost: $15,000</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="confidence-indicator">
+                                        <span class="confidence-icon">🎯</span>
+                                        <span>Confidence: 94% (based on 18 months historical data)</span>
+                                    </div>
+                                    
+                                    <div class="quick-actions">
+                                        <button class="action-btn primary">Generate Purchase Order</button>
+                                        <button class="action-btn secondary">Schedule Implementation</button>
+                                        <button class="action-btn secondary">Export Budget Report</button>
+                                    </div>
+                                </div>
+                                <div class="message-time">10:03:15 AM</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="benefit-item glassmorphic-card">
-                    <div class="benefit-icon">🎯</div>
-                    <h4>Intelligent</h4>
-                    <p>AI understands context and intent</p>
-                </div>
-                
-                <div class="benefit-item glassmorphic-card">
-                    <div class="benefit-icon">🔒</div>
-                    <h4>Secure</h4>
-                    <p>Enterprise-grade security and compliance</p>
+                <div class="vnli-outcome success">
+                    <h4>VNLI Outcome:</h4>
+                    <div class="outcome-metrics">
+                        <div class="outcome-metric">
+                            <span class="metric-label">Total Time:</span>
+                            <span class="metric-value">1 hour</span>
+                        </div>
+                        <div class="outcome-metric">
+                            <span class="metric-label">Resource Cost:</span>
+                            <span class="metric-value">$75</span>
+                        </div>
+                        <div class="outcome-metric">
+                            <span class="metric-label">Accuracy:</span>
+                            <span class="metric-value">94%</span>
+                        </div>
+                        <div class="outcome-metric">
+                            <span class="metric-label">Data Freshness:</span>
+                            <span class="metric-value">Real-time</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Transformation indicator -->
-        <div class="transformation-indicator glassmorphic-card">
-            <div class="transformation-content">
-                <h3>From Complex to Simple</h3>
-                <div class="transformation-comparison">
-                    <div class="before">
-                        <span class="comparison-label">Before:</span>
-                        <span class="comparison-text">47 lines of PowerShell</span>
+        <!-- Planning Comparison Summary -->
+        <div class="comparison-summary glassmorphic-card">
+            <h3>Capacity Planning Transformation</h3>
+            <div class="comparison-grid">
+                <div class="comparison-metric">
+                    <div class="metric-label">Time to Complete</div>
+                    <div class="metric-comparison">
+                        <div class="traditional-metric">
+                            <span class="metric-value">2-3 weeks</span>
+                            <span class="metric-bar" style="width: 100%"></span>
+                        </div>
+                        <div class="vnli-metric">
+                            <span class="metric-value">1 hour</span>
+                            <span class="metric-bar success" style="width: 1.2%"></span>
+                        </div>
                     </div>
-                    <div class="arrow">→</div>
-                    <div class="after">
-                        <span class="comparison-label">After:</span>
-                        <span class="comparison-text">"Show me high CPU VMs"</span>
-                    </div>
+                    <div class="improvement">🚀 99% faster</div>
                 </div>
+                
+                <div class="comparison-metric">
+                    <div class="metric-label">Resource Investment</div>
+                    <div class="metric-comparison">
+                        <div class="traditional-metric">
+                            <span class="metric-value">$15K-20K</span>
+                            <span class="metric-bar" style="width: 100%"></span>
+                        </div>
+                        <div class="vnli-metric">
+                            <span class="metric-value">$75</span>
+                            <span class="metric-bar success" style="width: 0.4%"></span>
+                        </div>
+                    </div>
+                    <div class="improvement">💰 99.6% cost reduction</div>
+                </div>
+                
+                <div class="comparison-metric">
+                    <div class="metric-label">Accuracy & Confidence</div>
+                    <div class="metric-comparison">
+                        <div class="traditional-metric">
+                            <span class="metric-value">65-75%</span>
+                            <span class="metric-bar" style="width: 70%"></span>
+                        </div>
+                        <div class="vnli-metric">
+                            <span class="metric-value">94%</span>
+                            <span class="metric-bar success" style="width: 94%"></span>
+                        </div>
+                    </div>
+                    <div class="improvement">🎯 25% more accurate</div>
+                </div>
+            </div>
+            
+            <div class="strategic-impact">
+                <h4>Strategic Impact:</h4>
+                <p>VNLI transforms capacity planning from a quarterly burden into a dynamic, data-driven conversation that happens in real-time.</p>
             </div>
         </div>
 
         <!-- Navigation hint -->
         <div class="navigation-hint">
-            <p>See VNLI in action →</p>
+            <p>Continue to see compliance reporting scenario →</p>
         </div>
     </div>
 </section>
